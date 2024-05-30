@@ -1,0 +1,140 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #774c81;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.header__left img {
+  height: 120px;
+  width: 330px;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+}
+
+.header__button {
+  height: 40px;
+  width: 180px;
+  margin-left: 10px;
+  margin-right: 20px;
+  padding: 8px 16px;
+  background-color: #f6e8ed;
+  color: #774c81;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.b2 {
+  position: absolute;
+  right: 210px;
+}
+
+.b1 {
+  position: absolute;
+  right: 0px;
+  background-color: #f8c458 !important;
+}
+
+.header__button:hover {
+  box-shadow: 0 12px 14px rgba(0, 0, 0, 0.1);
+}
+
+.header__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.header__hamburger img {
+  width: 30px;
+  height: 30px;
+}
+
+.header__user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.header__user-initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ADD8E6;
+  color: #000;
+  font-weight: bold;
+  border: 2px solid #f8c458;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.header__logout {
+  background-color: #f8c458;
+  color: #774c81;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .header__button {
+    display: none;
+  }
+
+  .header__left img {
+    height: 80px;
+    width: auto;
+  }
+
+  .header__hamburger {
+    display: block;
+  }
+
+  .header__menu {
+    position: absolute;
+    top: 70%;
+    right: 60px;
+    background-color: #774c81;
+    padding: 10px 80px 0px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border: #f8c458 solid 1px;
+  }
+
+  .header__menu-item {
+    color: #f8c458;
+    text-decoration: none;
+    margin-bottom: 1px;
+    white-space: nowrap;
+  }
+
+  .header__menu-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .header__logout {
+    padding: 4px 8px; /* Reducir el padding */
+    font-size: 12px; /* Reducir el tamaño de fuente */
+  }
+}

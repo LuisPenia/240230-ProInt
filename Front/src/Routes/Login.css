@@ -1,0 +1,111 @@
+.login-wrapper {
+  min-height: 71vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/GnteDisfrazada.jpg');
+  background-size: cover;
+  background-position: center;
+  }
+  .login-container {
+  max-width: 400px;
+  width: 100%;
+  padding: 40px;
+  background-color: rgba(119, 76, 129, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .login-title {
+  text-align: center;
+  color: #f8c458;
+  margin-bottom: 20px;
+  }
+  .login-form {
+  display: flex;
+  flex-direction: column;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    }
+
+  .form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #ccc;
+  }
+  .form-input::placeholder {
+  color: #ccc;
+  }
+  .form-input:focus {
+  outline: none;
+  border-color: #774c81;
+  }
+  .login-button {
+  padding: 10px;
+  background-color: #f8c458;
+  color: #774c81;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  }
+  .login-button:hover {
+  background-color: #e0b04e;
+  }
+  .checkbox-group {
+  margin-bottom: 20px;
+  }
+.checkbox-label {
+display: flex;
+align-items: center;
+color: #fff;
+font-size: 14px;
+margin-right: auto;
+}
+
+  .checkbox-input {
+  margin-right: 8px;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  }
+  .checkbox-input:checked {
+  background-color: #f8c458;
+  border-color: #f8c458;
+  }
+  .checkbox-input:checked::before {
+  content: '✓';
+  display: block;
+  text-align: center;
+  color: #774c81;
+  font-size: 12px;
+  line-height: 16px;
+  }
+  .forgot-password-label {
+    margin-left: auto;
+  }
+
+  .forgot-password-link {
+      color: #f8c458;
+      text-decoration: none;
+  }
+
+  .register-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+  }
+  .register-link-text {
+  color: #f8c458;
+  text-decoration: none;
+  }
