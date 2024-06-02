@@ -37,7 +37,7 @@ const CardAdmin = ({ product }) => (
           <td>{product.price}</td>
         </tr>
         <tr>
-          <td><strong>Precio:</strong></td>
+          <td><strong>Descripción:</strong></td>
           <td>{product.description}</td>
         </tr>
       </tbody>

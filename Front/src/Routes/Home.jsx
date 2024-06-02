@@ -12,8 +12,6 @@ const Home = ({ products, onAddProduct  }) => {
     setLocalProducts(products);
   }, [products]);
 
-  console.log(localProducts);
-
   return (
     <div className="home">
       <section className="buscador">

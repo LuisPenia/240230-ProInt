@@ -19,7 +19,7 @@ const AdminFilter = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const apiUrl = 'https://script.google.com/macros/s/AKfycbwiGngQ9WkbWBDvGF7njtbgQRYRKwYs8NzaZb76HVzCFYg2lD2VdfQVdl2VII-MRlKZ/exec?action=getDisfraz';
+        const apiUrl = 'https://script.google.com/macros/s/AKfycbxcw4Xd2EnawRGY5lp3xwr8q-5CuVj1TkzPy1QBgih-h0mzA_wJ3ichk-GUNQujzyE3/exec?action=getProduct';
         
         const response = await fetch(apiUrl);
         if (!response.ok) {

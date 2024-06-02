@@ -4,9 +4,6 @@ import './Categorias.css'
 
 const Categorias = ({ products }) => {
   // Declaraciones de console.log para depuración
-  console.log('disfraces');
-  console.log(products);
-  console.log('disfraces comentados')
 
   // Estado para almacenar los productos desordenados
   const [shuffledProducts, setShuffledProducts] = useState([])

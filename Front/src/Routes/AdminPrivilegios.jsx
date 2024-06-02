@@ -29,20 +29,9 @@ const AdminPrivilegios = () => {
   };
 
 
-/*
-    console.log(userId);
-    console.log(newAdminStatus);
-    console.log(
-      JSON.stringify({
-      id: userId,
-      admin: newAdminStatus.toString(), // Convertir a string para que coincida con "True" o "False"
-      })
-    )
-*/
-
-
   const handleAdminToggle = async (userId, currentAdminStatus) => {
 
+    console.log(userId, currentAdminStatus);
     const newAdminStatus = !currentAdminStatus;
 
     try {
@@ -65,6 +54,7 @@ const AdminPrivilegios = () => {
     } catch (error) {
       console.error(`Error updating admin status: ${error.message} (${response})`);
     }
+
   };
 
   if (loading) {
@@ -77,54 +67,61 @@ const AdminPrivilegios = () => {
 
   return (
     <div>
-      {data.map((user, index) => (
-        <div key={index} style={{ marginBottom: '20px' }}>
+      
+        <div style={{ marginBottom: '1px' }}>
           <table className='tablaFilter'>
+
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Admin</th>
               </tr>
             </thead>
+            
             <tbody>
-              <tr>
+              {data.map((user, index) => (
+              <tr key={index} >
                 <td>{user.id}</td>
                 <td>{user.name}</td>
-                <td>{user.mail}</td>
-                <td>{user.rol}</td>
+                <td>{user.email}</td>
+                <td>{user.role}</td>
+                <td>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <label style={{ marginRight: '10px' }}></label>
+                    <div
+                      style={{
+                        width: '50px',
+                        height: '20px',
+                        border: '1px solid #ccc',
+                        borderRadius: '10px',
+                        position: 'relative',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleAdminToggle(user.id, user.admin)}
+                    >
+                      <div
+                        style={{
+                          width: '20px',
+                          height: '20px',
+                          backgroundColor: user.admin ? '#4CAF50' : '#f44336',
+                          borderRadius: '10px',
+                          position: 'absolute',
+                          left: user.admin ? '30px' : '0',
+                          transition: 'left 0.3s ease',
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                </td>
               </tr>
+              ))}
             </tbody>
           </table>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <label style={{ marginRight: '10px' }}>Admin:</label>
-            <div
-              style={{
-                width: '50px',
-                height: '20px',
-                border: '1px solid #ccc',
-                borderRadius: '10px',
-                position: 'relative',
-                cursor: 'pointer',
-              }}
-              onClick={() => handleAdminToggle(user.id, user.admin)}
-            >
-              <div
-                style={{
-                  width: '20px',
-                  height: '20px',
-                  backgroundColor: user.admin ? '#4CAF50' : '#f44336',
-                  borderRadius: '10px',
-                  position: 'absolute',
-                  left: user.admin ? '30px' : '0',
-                  transition: 'left 0.3s ease',
-                }}
-              ></div>
-            </div>
-          </div>
         </div>
-      ))}
+      
     </div>
   );
 };
