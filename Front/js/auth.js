@@ -1,37 +1,31 @@
-
-/* exported gapiLoaded */
-/* exported gisLoaded */
-/* exported handleAuthClick */
-/* exported handleSignoutClick */
-
 // TODO(developer): Set to client ID and API key from the Developer Console
-const CLIENT_ID = '867600866582-01m63jpa57nmnh04v3bn6o60g8lf42ab.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyAyW63BR6-PfZ-QFNCk5exipOS-JbuX2Tk';
+const CLIENT_ID =
+  "867600866582-01m63jpa57nmnh04v3bn6o60g8lf42ab.apps.googleusercontent.com";
+const API_KEY = "AIzaSyAyW63BR6-PfZ-QFNCk5exipOS-JbuX2Tk";
 
 // Discovery doc URL for APIs used by the quickstart
-const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+const DISCOVERY_DOC =
+  "https://sheets.googleapis.com/$discovery/rest?version=v4";
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-const SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+const SCOPES = "https://www.googleapis.com/auth/spreadsheets";
 
 let tokenClient;
 let gapiInited = false;
 let gisInited = false;
 
-document.getElementById("gapigapi").addEventListener("load,",gapiLoaded());
-document.getElementById("gisgis").addEventListener("load,",gisLoaded());
+document.getElementById("gapi").addEventListener("load", gapiLoaded());
+document.getElementById("gis").addEventListener("load", gisLoaded());
 
-
-document.getElementById('authorize_button').style.visibility = 'hidden';
-document.getElementById('signout_button').style.visibility = 'hidden';
+document.getElementById("authorize_button").style.visibility = "hidden";
+document.getElementById("signout_button").style.visibility = "hidden";
 
 /**
  * Callback after api.js is loaded.
  */
 function gapiLoaded() {
-  gapi.load('client', initializeGapiClient);
-  console.log("gapi ejecutandoce");
+  gapi.load("client", initializeGapiClient);
 }
 
 /**
@@ -54,7 +48,7 @@ function gisLoaded() {
   tokenClient = google.accounts.oauth2.initTokenClient({
     client_id: CLIENT_ID,
     scope: SCOPES,
-    callback: '', // defined later
+    callback: "", // defined later
   });
   gisInited = true;
   maybeEnableButtons();
@@ -65,30 +59,31 @@ function gisLoaded() {
  */
 function maybeEnableButtons() {
   if (gapiInited && gisInited) {
-    document.getElementById('authorize_button').style.visibility = 'visible';
+    document.getElementById("authorize_button").style.visibility = "visible";
   }
 }
 
 /**
  *  Sign in the user upon button click.
  */
+ 
 function handleAuthClick() {
   tokenClient.callback = async (resp) => {
     if (resp.error !== undefined) {
-      throw (resp);
+      throw resp;
     }
-    document.getElementById('signout_button').style.visibility = 'visible';
-    document.getElementById('authorize_button').innerText = 'Refresh';
+    document.getElementById("signout_button").style.visibility = "visible";
+    document.getElementById("authorize_button").innerText = "Refresh";
     await listMajors();
   };
 
   if (gapi.client.getToken() === null) {
     // Prompt the user to select a Google Account and ask for consent to share their data
     // when establishing a new session.
-    tokenClient.requestAccessToken({prompt: 'consent'});
+    tokenClient.requestAccessToken({ prompt: "consent" });
   } else {
     // Skip display of account chooser and consent dialog for an existing session.
-    tokenClient.requestAccessToken({prompt: ''});
+    tokenClient.requestAccessToken({ prompt: "" });
   }
 }
 
@@ -99,10 +94,10 @@ function handleSignoutClick() {
   const token = gapi.client.getToken();
   if (token !== null) {
     google.accounts.oauth2.revoke(token.access_token);
-    gapi.client.setToken('');
-    document.getElementById('content').innerText = '';
-    document.getElementById('authorize_button').innerText = 'Authorize';
-    document.getElementById('signout_button').style.visibility = 'hidden';
+    gapi.client.setToken("");
+    document.getElementById("content").innerText = "";
+    document.getElementById("authorize_button").innerText = "Authorize";
+    document.getElementById("signout_button").style.visibility = "hidden";
   }
 }
 
@@ -110,33 +105,51 @@ function handleSignoutClick() {
  * Print the names and majors of students in a sample spreadsheet:
  * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
  */
+
 async function listMajors() {
   let response;
   try {
     // Fetch first 10 files
     response = await gapi.client.sheets.spreadsheets.values.get({
-      spreadsheetId: '1pnZCu-ychrT5NWCes6YZ3metb_0q1mzSj5PPQXC9c5Ms',
-      range: 'UserLoginAdmin!A:E',
+      spreadsheetId: "1K24nLbfVkU_vFfnZuhDpkxXC1AkhxwwuTrllYqAdjqQ",
+      range: "UserLoginAdmin!A2:F10",
     });
   } catch (err) {
     console.error(err);
-    //document.getElementById('content').innerText = err.message;
+    //document.getElementById("content").innerText = err.message;
     return;
   }
   const range = response.result;
   if (!range || !range.values || range.values.length == 0) {
-    console.warn("No se encontraron valores")
-    //document.getElementById('content').innerText = 'No values found.';
+    console.warn("No se encontraron valores");
+    //document.getElementById("content").innerText = "No values found.";
     return;
   }
-
-  console.log(range.values);
-
   // Flatten to string to display
+
+  console.log = range.values;
+
   /*
+  // Flatten to string to display
   const output = range.values.reduce(
-      (str, row) => `${str}${row[0]}, ${row[4]}\n`,
-      'Name, Major:\n');
-  document.getElementById('content').innerText = output;
+    (str, row) =>
+      `${str}${row[0]}, ${row[1]}, ${row[2]}, ${row[3]}, ${row[4]}\n`,
+    "id,	name,	email,	role,	admin:\n"
+  );
+  
+
+  document.getElementById("content").innerText = output;
   */
+
 }
+
+/*
+async function adminUpdate() {
+  response = await gapi.client.sheet.spreadsheets.values.update({
+    spreadsheetId: "1K24nLbfVkU_vFfnZuhDpkxXC1AkhxwwuTrllYqAdjqQ",
+    range: "UserLoginAdmin!E7",
+    values: [update],
+    valueInputOption: "USER_ENTERED",
+  });
+}
+*/
