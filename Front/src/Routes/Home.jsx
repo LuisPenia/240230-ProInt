@@ -49,9 +49,6 @@ const Home = ({ products, onAddProduct }) => {
 export default Home;
 */
 
-
-
-
 import React, { useState, useEffect } from 'react';
 import "./Home.css";
 import lupa from "../assets/lupa.png";

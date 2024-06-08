@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import './detail.css';
+import './Detail.css';
 
 // Objeto que mapea los IDs de disfraces a las características
 const disfrazCaracteristicas = {
