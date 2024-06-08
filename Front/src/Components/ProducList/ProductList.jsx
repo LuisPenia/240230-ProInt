@@ -78,8 +78,8 @@ const ProductList = () => {
 
   return (
     <>
-      {/* Lo más buscado */}
-      {/* Tendencias de la temporada */}
+      <div><h2>Lo mas Buscado</h2></div>
+      <div><p>Tendencias de temporada</p></div>
 
       {grid.map((row, rowIndex) => (
         <div key={`row-${rowIndex}`} className="row">

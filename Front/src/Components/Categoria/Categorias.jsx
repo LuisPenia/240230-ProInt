@@ -57,7 +57,6 @@ const Categorias = ({ products }) => {
 
   return (
     <div className='categorias'>
-      <div><h1>Hola</h1></div>
       <section>
         <div><h2>Categorias</h2></div>
         <div>
