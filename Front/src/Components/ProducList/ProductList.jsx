@@ -5,6 +5,7 @@ import './PorductoList.css'
 const ProductList = () => {
   const [shuffledProducts, setShuffledProducts] = useState([]);
 
+  /*
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -19,6 +20,30 @@ const ProductList = () => {
 
     fetchProducts();
   }, []);
+  */
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const apiUrl = 'https://script.google.com/macros/s/AKfycbxcw4Xd2EnawRGY5lp3xwr8q-5CuVj1TkzPy1QBgih-h0mzA_wJ3ichk-GUNQujzyE3/exec?action=getProduct';
+        
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`Error en la solicitud: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log(data);
+        const shuffledArray = shuffleArray(data);
+        setShuffledProducts(shuffledArray.slice(0, 10));
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+
 
   const shuffleArray = (array) => {
     const shuffledArray = [...array];
