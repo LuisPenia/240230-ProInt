@@ -78,13 +78,14 @@ const ProductList = () => {
 
   return (
     <>
-      <div><h2>Lo mas Buscado</h2></div>
-      <div><p>Tendencias de temporada</p></div>
+
+      <div className="productListDiv" ><h2>Lo mas Buscado</h2></div>
+      <div className="productListDiv" ><p>Tendencias de temporada</p></div>
 
       {grid.map((row, rowIndex) => (
-        <div key={`row-${rowIndex}`} className="row">
+        <div className="productListDiv" key={`row-${rowIndex}`}>
           {row.map((product, colIndex) => (
-            <div key={`product-${rowIndex}-${colIndex}`} className="col">
+            <div className="productListDiv" key={`product-${rowIndex}-${colIndex}`}>
               {product ? (
                 <Card product={product} />
               ) : null}
@@ -92,6 +93,8 @@ const ProductList = () => {
           ))}
         </div>
       ))}
+
+      
     </>
   );
 };
