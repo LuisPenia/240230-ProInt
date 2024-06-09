@@ -14,6 +14,8 @@ import AdminFilter from './Routes/AdminFilter'
 import Perfil from './Routes/Perfil'
 import AdminPrivilegios from './Routes/AdminPrivilegios'
 import UserFilter from './Routes/UserFilter'
+import Home_2 from './Routes/Home_2'
+import Detail_2 from './Routes/detail_2'
 
 
 function App() {
@@ -166,6 +168,12 @@ return (
       <Route path="/AdminPrivilegios" element={<AdminPrivilegios/>} />
 
       <Route path='/Perfil' element={<Perfil/>} />
+
+      {/*<Route path="/" element={<Home_2 products={products} />} />*/}
+      <Route path="/detail_2/:productId" element={<Detail_2 products={products} />} />
+
+
+
       </Routes>
     <Footer />
   </div>
