@@ -2,27 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card.jsx';
 import './PorductoList.css'
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
   const [shuffledProducts, setShuffledProducts] = useState([]);
 
-  /*
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('http://localhost:8081/disfraces');
-        const data = await response.json();
-        const shuffledArray = shuffleArray(data);
-        setShuffledProducts(shuffledArray.slice(0, 10));
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-  */
-
-  useEffect(() => {
+  /*useEffect(() => {
+    console.log(products);
     const fetchProducts = async () => {
       try {
         const apiUrl = 'https://script.google.com/macros/s/AKfycbxcw4Xd2EnawRGY5lp3xwr8q-5CuVj1TkzPy1QBgih-h0mzA_wJ3ichk-GUNQujzyE3/exec?action=getProduct';
@@ -32,8 +16,6 @@ const ProductList = () => {
           throw new Error(`Error en la solicitud: ${response.statusText}`);
         }
         const data = await response.json();
-        //console.log("productList");
-        //console.log(data);
         
         const shuffledArray = shuffleArray(data);
         setShuffledProducts(shuffledArray.slice(0, 10));
@@ -41,9 +23,15 @@ const ProductList = () => {
         console.error('Error fetching products:', error);
       }
     };
-
     fetchProducts();
-  }, []);
+  }, []);*/
+
+  
+  useEffect(() => {
+    console.log(products);
+    const shuffledArray = shuffleArray(products);
+    setShuffledProducts(shuffledArray.slice(0, 10));
+  }, [products]);
 
 
 

@@ -67,7 +67,6 @@ const Categorias = ({ products }) => {
                 <div key={`${rowIndex}-${colIndex}`} className="colCat">
                   {/* Renderizar un componente CardCat para cada producto o un espacio vacío */}
                   {product ? <CardCat product={product} /> : <div className="empty-card" />}
-                  {console.log(product)}
                 </div>
               ))}
             </div>
