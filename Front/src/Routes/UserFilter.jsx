@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import './UserFilter.css';
-import CardAdmin from '../Components/Card/CardAdmin'; // Asegúrate de tener este componente
+import CardAdmin from '../Components/Card/CardAdmin';
 import Card from '../Components/Card/Card';
 import CardFilter from '../Components/Card/CardFilter';
 
-const UserFilter = ( products{ }) => {
+const UserFilter = ({products}) => { //products debe ser pasado como prop
   //const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState({
     mainCategory: '',
@@ -130,7 +130,7 @@ const UserFilter = ( products{ }) => {
           <option value="0.00-10.00">0.00-10.00</option>
           <option value="10.01-20.00">10.01-20.00</option>
           <option value="20.01-30.00">20.01-30.00</option>
-          <option value="30.00 y más">30.00 y más</option>
+          <option value="30.00-Infinity">30.00 y más</option>
         </select>
         <input type="text" name="name" onChange={handleFilterChange} value={filter.name} placeholder="Nombre" />
         <select name="size" onChange={handleFilterChange} value={filter.size} placeholder="Talla">
