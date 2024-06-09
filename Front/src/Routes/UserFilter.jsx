@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import './UserFilter.css';
 import CardAdmin from '../Components/Card/CardAdmin'; // Asegúrate de tener este componente
+import Card from '../Components/Card/Card';
+import CardFilter from '../Components/Card/CardFilter';
 
-const UserFilter = ({ products }) => {
+const UserFilter = ( products{ }) => {
   //const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState({
     mainCategory: '',
@@ -140,36 +142,20 @@ const UserFilter = ({ products }) => {
         </select>
         <button onClick={resetFilters}>Resetear filtros</button>
       </div>
-      <table className='tablaFilter'>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Categoría Principal</th>
-            <th>Categoría Secundaria</th>
-            <th>Talla</th>
-            <th>Precio</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentProducts.map(product => (
-            <tr key={product.id}>
-              <td>{product.id}</td>
-              <td>{product.name}</td>
-              <td>{product.mainCategory}</td>
-              <td>{product.subCategory}</td>
-              <td>{product.size}</td>
-              <td>{product.price}</td>
-              <td>
-                <button onClick={() => handleModal('view', product)}>👁</button>
-                <button onClick={() => handleModal('edit', product)}>🖉</button>
-                <button onClick={() => handleModal('delete', product)}>🗑️</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          
+        <div className='galeryFilter'>
+            
+            {currentProducts.map(product => (
+                <div key={product.id}>
+                    <CardFilter product={product} />
+                </div>
+            ))}
+
+        </div>
+
+
+
+
       <div className="pagination">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>Anterior</button>
         <button onClick={handleNextPage} disabled={currentPage === Math.ceil(filteredProducts.length / productsPerPage)}>Siguiente</button>

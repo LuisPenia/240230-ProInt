@@ -1,5 +1,13 @@
+    
+    .galeryFilter{
 
-  
+        display: flex;
+    
+        color: #3b24d1;
+       align-items: flex-start;
+        
+    }
+
   .filters {
     color: bisque;
     display: flex;
@@ -24,40 +32,7 @@
 
 
   
-  table {
-    background-color: aqua;
-    width: 99%;
-    border-collapse: collapse;
-    margin: 5px;
-  }
   
-  table th, table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
-
-  table button {
-    background-color: #161615; /* Azul */
-    border-radius: 10px;
-    height: 25px;
-    width: 35px;
-  }
-  
-  table th {
-    background-color: #f6f8ed;
-    color: purple;
-  }
-  
-  table tbody tr {
-    background-color: #f2f2f2;
-  }
-
-  table tbody tr td button{
-    margin: 4px;
-    filter: invert(100%);
-    object-fit: cover; 
-  }
   
   .modal {
     display: flex;
