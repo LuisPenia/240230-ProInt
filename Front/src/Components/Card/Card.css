@@ -20,7 +20,7 @@
 }
 
 .imageContent{
- 
+  align-items: center;
   width: 200px;
   background-color: white;
 }
