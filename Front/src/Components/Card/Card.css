@@ -1,7 +1,8 @@
 .card {
+  height: ;
   background-color: white;
   margin: 5px;
-  
+  display: flex;
   flex-direction: row;
   padding: 5px;
   border:1px solid #ccc;
@@ -19,17 +20,20 @@
 }
 
 .imageContent{
+ 
   width: 200px;
   background-color: white;
 }
 
 .card-content {
   flex-direction: column;
+  width: 200px;
   padding: 16px;
   align-items: center;
 }
 
 .card-content h3 {
+  text-align: center;
   margin-top: 0;
 }
 
