@@ -1,18 +1,19 @@
 .card {
   background-color: white;
   margin: 5px;
-  display: flex;
+  
   flex-direction: row;
   padding: 5px;
   border:1px solid #ccc;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  
 }
 
 
 .card img {
-  width: 100%;
+  width: 90%;
   height: 200px; 
   object-fit: contain; 
 }

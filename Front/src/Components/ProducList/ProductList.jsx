@@ -26,7 +26,7 @@ const ProductList = ({ products }) => {
     fetchProducts();
   }, []);*/
 
-  
+
   useEffect(() => {
     console.log(products);
     const shuffledArray = shuffleArray(products);
@@ -75,7 +75,7 @@ const ProductList = ({ products }) => {
       {grid.map((row, rowIndex) => (
         <div className="productListDiv" key={`row-${rowIndex}`}>
           {row.map((product, colIndex) => (
-            <div className="productListDiv" key={`product-${rowIndex}-${colIndex}`}>
+            <div key={`product-${rowIndex}-${colIndex}`}>
               {product ? (
                 <Card product={product} />
               ) : null}

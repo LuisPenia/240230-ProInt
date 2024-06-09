@@ -19,7 +19,7 @@ const Card = ({ product }) => {
         <h3>{name}</h3>
         <p>{description}</p>
         <Link to={`/card/${id}`} className="detail-button">
-          Ver detalle
+          Ver más
         </Link>
       </div>
     </div>
