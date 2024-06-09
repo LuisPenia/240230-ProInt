@@ -13,6 +13,7 @@ import Login from './Routes/Login'
 import AdminFilter from './Routes/AdminFilter'
 import Perfil from './Routes/Perfil'
 import AdminPrivilegios from './Routes/AdminPrivilegios'
+import UserFilter from './Routes/UserFilter'
 
 
 function App() {
@@ -161,6 +162,7 @@ return (
       <Route path="/Admin/AdminCaracteristicas" element={<AdminCaracteristicas/>} />
       
       <Route path="/adminFilter" element={<AdminFilter/>} />
+      <Route path="/userFilter" element={<UserFilter products={products} />} />
       <Route path="/AdminPrivilegios" element={<AdminPrivilegios/>} />
 
       <Route path='/Perfil' element={<Perfil/>} />
