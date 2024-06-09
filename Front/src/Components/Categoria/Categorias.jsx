@@ -29,7 +29,7 @@ const Categorias = ({ products }) => {
     const grid = [];
     const maxRows = 1; // Número máximo de filas en la cuadrícula
     const maxCols = 20; // Número máximo de columnas en la cuadrícula
-    let array = [' Mujer ', ' Hombre ', ' Mascotas ', ' Niños y niñas ']; // Categorías a filtrar
+    let array = ['Mujer', 'Hombre', 'Mascotas', 'Niños']; // Categorías a filtrar
 
     for (let row = 0; row < maxRows; row++) {
       grid[row] = [];
@@ -37,7 +37,7 @@ const Categorias = ({ products }) => {
         const index = row * maxCols + col;
         if (index < products.length) {
           const objectIndex = products[index];
-          const elementoAEliminar = products[index].categoria; // Categoría a eliminar
+          const elementoAEliminar = products[index].mainCategory; // Categoría a eliminar
           const longitudOriginal = array.length; // Longitud original del arreglo
           array = array.filter((elemento) => elemento !== elementoAEliminar); // Eliminar la categoría del arreglo
           const eliminadoExitosamente = array.length < longitudOriginal; // Verificar si la categoría se eliminó con éxito
@@ -67,6 +67,7 @@ const Categorias = ({ products }) => {
                 <div key={`${rowIndex}-${colIndex}`} className="colCat">
                   {/* Renderizar un componente CardCat para cada producto o un espacio vacío */}
                   {product ? <CardCat product={product} /> : <div className="empty-card" />}
+                  {console.log(product)}
                 </div>
               ))}
             </div>

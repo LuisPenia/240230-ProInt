@@ -32,7 +32,9 @@ const ProductList = () => {
           throw new Error(`Error en la solicitud: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log(data);
+        //console.log("productList");
+        //console.log(data);
+        
         const shuffledArray = shuffleArray(data);
         setShuffledProducts(shuffledArray.slice(0, 10));
       } catch (error) {
