@@ -87,3 +87,41 @@
   .tableAction{
     justify-content: space-between;
   }
+
+  .filters select,
+  .filters input {
+    width: 200px; /* Ajusta este valor según el tamaño deseado */
+  }
+  
+  .filter-container {
+    position: relative;
+    display: inline-block;
+    width: 200px; /* Asegura que el contenedor tenga el mismo ancho que los campos */
+  }
+  
+  .filter-container input {
+    width: 100%; /* Asegura que el campo de entrada ocupe todo el ancho del contenedor */
+  }
+  
+  .suggestions {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 100%; /* Asegura que las sugerencias tengan el mismo ancho que el campo de entrada */
+    max-height: 150px; /* Ajusta la altura máxima si es necesario */
+    overflow-y: auto;
+    z-index: 1000;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .suggestions li {
+    color: black; /* Cambia el color del texto a negro */
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .suggestions li:hover {
+    background-color: #f0f0f0;
+  }
