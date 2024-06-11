@@ -10,7 +10,7 @@
 }
 
 .Detail-imgContent {
-  width: 30vw;
+  width: 20vw;
   height: 60vh; /* Altura del 80% del viewport */
   display: flex;
   justify-content: left;
@@ -26,7 +26,7 @@
 }
 
 .Detail-textContent {
-  width: 30vw;
+  width: 20vw;
   height: 60vh; /* Altura del 80% del viewport */
   justify-content: center;
   align-items: center;
@@ -39,7 +39,8 @@
 }
 
 .Detail-calendarContent {
-  width: 40vw;
+  display: flex;
+  width: 80vw;
   height: 60vh; /* Altura del 80% del viewport */
   justify-content: center;
   align-items: center;

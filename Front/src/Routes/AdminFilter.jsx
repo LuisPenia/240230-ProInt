@@ -110,7 +110,7 @@ const AdminFilter = () => {
           <option className='optionFilter' value="">Categoría principal</option>
           <option value="Hombre">Hombre</option>
           <option value="Mujer">Mujer</option>
-          <option value="Niños y niñas">Niños y niñas</option>
+          <option value="Niños">Niños</option>
           <option value="Mascotas">Mascotas</option>
         </select>
         <select name="subCategory" onChange={handleFilterChange} value={filter.subCategory} placeholder="Categoría secundaria">
