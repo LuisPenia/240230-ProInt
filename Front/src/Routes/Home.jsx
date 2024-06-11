@@ -21,14 +21,13 @@ const Home = ({ products, onAddProduct  }) => {
     <div className="home">
       <section className="buscador">
         <h2>Encuentra tu disfraz perfecto</h2>
-        <p>Explora nuestra amplia colección de disfraces para todas las ocasiones. Utiliza la lupa para encontrar lo que necesitas</p>
         <div>
-          <img src={lupa} alt="Buscar" onClick={handleLupaClick} />
+          <p>Explora nuestra amplia colección de disfraces para todas las ocasiones. Utiliza la lupa para encontrar lo que necesitas</p>
+          <img className='lupa' src={lupa} alt="Buscar" onClick={handleLupaClick} />
         </div>
       </section>
 
       <Categorias products={products}/>
-      
       <ProductList products={localProducts} onAddProduct={onAddProduct}/>
     
     </div>
