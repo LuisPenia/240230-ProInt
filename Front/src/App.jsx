@@ -102,7 +102,7 @@ return (
       <Route path="/adminFilter" element={<AdminFilter/>} />
       <Route path="/userFilter" element={<UserFilter products={products} />} />
       <Route path="/AdminPrivilegios" element={<AdminPrivilegios/>} />
-
+      <Route path="/detail/:productId" element={<Detail products={products} />} />
       <Route path='/Perfil' element={<Perfil/>} />
       </Routes>
     <Footer />

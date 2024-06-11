@@ -11,21 +11,22 @@ const Card = ({ product }) => {
   }
 
   // eslint-disable-next-line react/prop-types
-  const { id, name, description, imageUrl } = product;
 
   return (
-    <div className="card">
-      <div className="imageContent">
-        <img src={imageUrl} alt={name} />
+    <Link to={`/detail/${product.id}`} className="product-card">
+      <div className="card">
+      
+        <div className="imageContent">
+          <img src={product.imageUrl} alt={name} />
+        </div>
+        <div className="card-content">
+              <h2>{product.name}</h2>
+              <p>{product.description}</p>
+              <p>{'$'+product.price}</p>
+        </div>
+      
       </div>
-      <div className="card-content">
-        <h3>{name}</h3>
-        <p>{description}</p>
-        <Link to={`/card/${id}`} className="detail-button">
-          Ver más
-        </Link>
-      </div>
-    </div>
+    </Link>
   );
 };
 

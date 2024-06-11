@@ -1,5 +1,5 @@
 .card {
-  height: ;
+  height: 90%;
   background-color: white;
   margin: 5px;
   display: flex;
@@ -9,7 +9,19 @@
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  
+}
+
+.product-card {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 

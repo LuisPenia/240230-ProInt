@@ -26,7 +26,7 @@ const Home = ({ products, onAddProduct  }) => {
           <img src={lupa} alt="Buscar" onClick={handleLupaClick} />
         </div>
       </section>
-      
+
       <Categorias products={products}/>
       
       <ProductList products={localProducts} onAddProduct={onAddProduct}/>
