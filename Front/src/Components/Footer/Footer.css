@@ -16,7 +16,7 @@
 }
 
 .footer-logo {
-  max-width: 100px;
+  max-width: 300px;
   height: auto;
 }
 
@@ -58,4 +58,10 @@
   .footer-social-icons {
     margin-top: 10px;
   }
+}
+
+.animation-container {
+  display: inline-block;
+  width: 100px; /* Ajusta según el tamaño de tus fotogramas */
+  height: 100px; /* Ajusta según el tamaño de tus fotogramas */
 }

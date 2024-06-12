@@ -12,8 +12,8 @@
 }
 
 .header__left img {
-  height: 120px;
-  width: 330px;
+  height: 200px;
+  width: 200px;
   margin-right: 10px;
   margin-left: 30px;
 }
@@ -137,4 +137,10 @@
     padding: 4px 8px; /* Reducir el padding */
     font-size: 12px; /* Reducir el tamaño de fuente */
   }
+}
+
+.animation-container {
+  display: inline-block;
+  width: 100px; /* Ajusta según el tamaño de tus fotogramas */
+  height: 100px; /* Ajusta según el tamaño de tus fotogramas */
 }
