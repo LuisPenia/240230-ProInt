@@ -141,6 +141,12 @@
 
 .animation-container {
   display: inline-block;
-  width: 100px; /* Ajusta según el tamaño de tus fotogramas */
+  width: 200px; /* Ajusta según el tamaño de tus fotogramas */
   height: 100px; /* Ajusta según el tamaño de tus fotogramas */
+}
+
+.miku-container {
+  display: inline-block;
+  height:250px; /* Ajusta según el tamaño de tus fotogramas */
+
 }

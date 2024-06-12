@@ -37,6 +37,8 @@ import serie28 from './iron series/Ensamblaje1_0028.png';
 import serie29 from './iron series/Ensamblaje1_0029.png';
 import serie30 from './iron series/Ensamblaje1_0030.png';
 import serie31 from './iron series/Ensamblaje1_0031.png'
+import SlidingImage from '../Miku/SlidingImage';  // Asegúrate de ajustar la ruta según tu estructura de proyecto
+import SlidingImage_1 from '../Miku/SlidingImage_1';
 
 const Header = () => {
 
@@ -134,10 +136,13 @@ const Header = () => {
           <img src={logo} alt="" />
         </Link>
       </div>
-
+  
       <div className="animation-container">
         <img src={frames[currentFrame]} alt="Animación" />
       </div>
+
+      <SlidingImage />
+      <SlidingImage_1/>
 
       <div className='header__right'>
         {isLoggedIn ? (

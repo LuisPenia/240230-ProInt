@@ -111,15 +111,16 @@ return (
   <div className="container">
     <div className="footer-content">
       
+      <img src={logo} alt="Logo de la empresa" className="footer-logo" />
 
-    <div className="animation-container">
+      <div className="animation-container">
         <img src={frames[currentFrame]} alt="Animación" />
       </div>
 
  
 
  
-      <img src={logo} alt="Logo de la empresa" className="footer-logo" />
+      
       <p className="footer-copyright">
         &copy; {currentYear} Nombre de la empresa. Todos los derechos reservados.
       </p>
