@@ -15,8 +15,23 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
     return <div>Product not found</div>;
   }
 
+
+
   useEffect(() => {
     window.scrollTo(0, 0); // Desplaza la ventana a la parte superior al montar el componente
+    console.log(reservations);
+    console.log(reservations[0]);
+    console.log(reservations[0].startDate);
+    console.log(reservations[0].startDate.getDate());
+    console.log(reservations[0].startDate.getMonth()+1);
+    console.log(reservations[0].startDate.getDay());
+    console.log('fechaActual');
+    console.log(fechaActual);
+    console.log(fechaActual.getDate());
+    console.log(fechaActual.getMonth()+1);
+    console.log(fechaActual.getDay());
+    console.log('primerDia = ' + primerDia(fechaActual.getDate()))
+
   }, []); // El array vacío como dependencia asegura que esto ocurra solo una vez al montar el componente
 
   // Función para parsear las reservas en un formato que react-datepicker pueda entender
@@ -35,14 +50,10 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
 
   const reservations = parseReservations(product.reservas); // Llama a la función parseReservations con las reservas del producto
 
-
-
   const [startDate1, setStartDate1] = useState(new Date('2024-06-04'));
   const [endDate1, setEndDate1] = useState(new Date('2024-06-10'));
   const [startDate2, setStartDate2] = useState(new Date('2024-06-15'));
   const [endDate2, setEndDate2] = useState(new Date('2024-06-20'))
-
-
 
   const [startDate, setStartDate] = useState(new Date('2024-06-04'));
   const [endDate, setEndDate] = useState(new Date('2024-06-10'));
@@ -52,9 +63,22 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
   };
 
 
+  const fechaActual = new Date();
+  const mesActual = fechaActual.getMonth() + 1; // 1 - Enero, 12 - Diciembre
 
 
 
+  // Aquí puedes definir el mes que quieras mostrar
+  const mesParaMostrar = 6; // 6 - Junio
+  const esMesActual = mesParaMostrar === mesActual;
+
+  const primerDia = (n) => {
+  
+    while (n > 0) {
+      n = n-7;
+    }
+    return 6+n;
+  };
 
 
   return (
@@ -89,6 +113,7 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
                   customInput={<input style={{ border: '1px solid #ccc', padding: '10px' }} />}
                 />
               </div>
+
               <div>
                 <p>Segundo rango de fechas</p>
                 <DatePicker 
@@ -100,36 +125,59 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
                   customInput={<input style={{ border: '1px solid #ccc', padding: '10px' }} />}
                 />
               </div>
-
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
-                <Calendario diaInicio={2} nombreMes="Junio" /> {/* El día 1 comienza en Miércoles, y el mes es Junio */}
-                <Calendario diaInicio={2} nombreMes="Julio" /> {/* El día 1 comienza en Miércoles, y el mes es Junio */}
-              </div>
-            
             
             </div>
+
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+              <div>
+              <Calendario 
+                  diaInicio={ primerDia(fechaActual.getDate()) } 
+                  numeroMes={mesParaMostrar} 
+                  rangos={[
+                    { inicio: 5, fin: 10 },
+                    { inicio: 15, fin: 23 }
+                  ]}
+                  esMesActual={esMesActual}
+                />
+
+              </div>
+          
+          <div>
+
+          <Calendario 
+                  diaInicio={0} 
+                  numeroMes={mesParaMostrar+1} 
+                  rangos={[
+                    { inicio: 5, fin: 10 },
+                    { inicio: 15, fin: 23 }
+                  ]}
+                  esMesActual={esMesActual}
+                />
+
+          </div>
+
+            </div>
+        
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
                 {reservations.map((reservation, index) => ( // Itera sobre las reservas parseadas
                   <div key={index}> {/* Contenedor para cada reserva, con una clave única */}
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}>
                       
-                      <p>reservation.startDate</p>
+                      <p></p>
 
-                      <DatePicker
+                      {/*<DatePicker
                         selected={reservation.startDate} // Fecha seleccionada inicial
                         startDate={reservation.startDate} // Fecha de inicio del rango
                         endDate={reservation.endDate} // Fecha de fin del rango
                         selectsRange // Habilita la selección de un rango de fechas
                         inline // Muestra el calendario inline, dentro del contenedor
-                      />
+                      />*/}
+
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-     
-      
-      
       
       </div>
 

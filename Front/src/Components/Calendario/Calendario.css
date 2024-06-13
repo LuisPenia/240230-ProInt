@@ -1,32 +1,37 @@
 .calendario {
-    border: solid 3px black;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 300px;
-    margin: 0 auto;
-    padding: 10px;
-  }
-  
-  .dias-semana, .dias-mes {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .dia-semana, .dia-mes {
-    width: calc(100% / 7);
-    text-align: center;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  
-  .dia-semana {
-    font-weight: bold;
-  }
-  
-  .dia-mes {
-    border: 1px solid #ddd;
-  }
-  
+.mes-nombre {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.dias-semana, .dias-mes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dia-semana, .dia-mes {
+  width: calc(100% / 7);
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.dia-semana {
+  font-weight: bold;
+}
+
+.dia-mes {
+  border: 1px solid #ddd;
+}
+
+.rango-fecha {
+  background-color: #ffeb3b; /* Puedes ajustar este color según tu preferencia */
+  color: #000;
+}
