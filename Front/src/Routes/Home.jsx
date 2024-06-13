@@ -23,6 +23,8 @@ const Home = ({ products, onAddProduct  }) => {
         <h2>Encuentra tu disfraz perfecto</h2>
         <div>
           <p>Explora nuestra amplia colección de disfraces para todas las ocasiones. Utiliza la lupa para encontrar lo que necesitas</p>
+        </div>
+        <div>
           <img className='lupa' src={lupa} alt="Buscar" onClick={handleLupaClick} />
         </div>
       </section>
