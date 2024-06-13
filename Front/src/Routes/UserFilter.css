@@ -3,7 +3,7 @@
 
         display: flex;
     
-        color: #3b24d1;
+        color: black;
        align-items: flex-start;
         
     }
@@ -24,7 +24,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 
-    color: purple;
+    color: black;
     background-color:#f6f8ed;
     font-weight: bold;
     font-size: medium;

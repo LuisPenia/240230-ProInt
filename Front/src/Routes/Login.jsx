@@ -68,7 +68,7 @@ const Login = () => {
             <div className="form-group">
               <input type="checkbox" id="mantenerConectado" className="checkbox-input" />
               <label htmlFor="mantenerConectado" className="checkbox-label">
-                Mantenme Conectado
+                Mantenerme Conectado
               </label>
               <label htmlFor="Olvidaste tu contraseña" className="forgot-password-label">
                 <Link to={"#"} className="forgot-password-link">

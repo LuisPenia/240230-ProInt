@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #774c81;
+  background-color: rgba(45, 45, 45);
   position: sticky;
   top: 0;
   left: 0;
@@ -30,7 +30,7 @@
   margin-right: 20px;
   padding: 8px 16px;
   background-color: #f6e8ed;
-  color: #774c81;
+  color: black;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -44,7 +44,7 @@
 .b1 {
   position: absolute;
   right: 0px;
-  background-color: #f8c458 !important;
+  background-color: rgba(255, 204, 0) !important;
 }
 
 .header__button:hover {
@@ -75,10 +75,10 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #ADD8E6;
+  background-color: rgba(255, 204, 0);
   color: #000;
   font-weight: bold;
-  border: 2px solid #f8c458;
+  border: 2px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,14 +86,16 @@
 }
 
 .header__logout {
-  background-color: #f8c458;
-  color: #774c81;
+  background-color: rgba(255, 204, 0);
+  color: black;
   border: none;
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
   font-size: 14px;
   margin-top: 10px;
+  height: 40px;
+  width: 150px;
 }
 
 @media (max-width: 768px) {

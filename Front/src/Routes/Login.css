@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('../assets/GnteDisfrazada.jpg');
+  background-color: #F6E8ED;
   background-size: cover;
   background-position: center;
   }
@@ -11,13 +11,13 @@
   max-width: 400px;
   width: 100%;
   padding: 40px;
-  background-color: rgba(119, 76, 129, 0.8);
+  background-color: rgba(45, 45, 45);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   .login-title {
   text-align: center;
-  color: #f8c458;
+  color: rgba(255, 204, 0);
   margin-bottom: 20px;
   }
   .login-form {
@@ -48,15 +48,15 @@
   }
   .login-button {
   padding: 10px;
-  background-color: #f8c458;
-  color: #774c81;
+  background-color: rgba(255, 204, 0);
+  color: black;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
   }
   .login-button:hover {
-  background-color: #e0b04e;
+  background-color: gray;
   }
   .checkbox-group {
   margin-bottom: 20px;
@@ -80,7 +80,7 @@ margin-right: auto;
   cursor: pointer;
   }
   .checkbox-input:checked {
-  background-color: #f8c458;
+  background-color: rgba(255, 204, 0);
   border-color: #f8c458;
   }
   .checkbox-input:checked::before {
@@ -96,7 +96,7 @@ margin-right: auto;
   }
 
   .forgot-password-link {
-      color: #f8c458;
+      color: rgba(255, 204, 0);
       text-decoration: none;
   }
 
@@ -106,6 +106,6 @@ margin-right: auto;
   color: #fff;
   }
   .register-link-text {
-  color: #f8c458;
+  color: rgba(255, 204, 0);
   text-decoration: none;
   }

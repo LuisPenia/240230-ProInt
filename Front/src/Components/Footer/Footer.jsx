@@ -122,7 +122,7 @@ return (
  
       
       <p className="footer-copyright">
-        &copy; {currentYear} Nombre de la empresa. Todos los derechos reservados.
+        &copy; {currentYear} Disfrazlandia. Todos los derechos reservados.
       </p>
       <div className="footer-social-icons">
         <a href="#" target="_blank" rel="noopener noreferrer">
