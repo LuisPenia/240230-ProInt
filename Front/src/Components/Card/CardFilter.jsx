@@ -1,4 +1,4 @@
-import "./Card.css";
+import "./CardFilter.css";
 
 const CardFilter = ({ product }) => {
 
@@ -9,9 +9,9 @@ const CardFilter = ({ product }) => {
       const { id, name, mainCategory, description, price, imageUrl } = product;
     
       return (
-        <div className="card">
+        <div className="card card-filter">
           <div className="imageContent">
-          <h3>{mainCategory}</h3>
+          <h3>{name}</h3>
           <img src={imageUrl} alt={name} />
           </div>
         </div>
