@@ -17,6 +17,7 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
 
 
 
+  
   useEffect(() => {
     window.scrollTo(0, 0); // Desplaza la ventana a la parte superior al montar el componente
     console.log(reservations);
@@ -62,11 +63,8 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
     setEndDate(endDate);
   };
 
-
   const fechaActual = new Date();
   const mesActual = fechaActual.getMonth() + 1; // 1 - Enero, 12 - Diciembre
-
-
 
   // Aquí puedes definir el mes que quieras mostrar
   const mesParaMostrar = 6; // 6 - Junio
@@ -79,6 +77,24 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
     }
     return 6+n;
   };
+
+
+
+
+  const range01 = [];
+  const range02 = [];
+  
+
+  reservations.map((reservation) => ( // Itera sobre las reservas parseadas
+    console.log(typeof (reservation.startDate.getDate())),
+    console.log(reservation.endDate)
+
+    //range01.push({ inicio: 5, fin: reservation.endDate.getDate() });
+
+  ));
+
+
+
 
 
   return (
