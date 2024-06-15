@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from 'react';
 import './SlidingImage_1.css';  // Importa el archivo CSS
 import villano from '../../assets/miVillano.png'

@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from 'react';
 import './SlidingImage.css';  // Importa el archivo CSS
 import miku from '../../assets/miku.png'

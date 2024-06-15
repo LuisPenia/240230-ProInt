@@ -147,7 +147,7 @@ return (
       </div>
     </div>
   </div>
-  <script src="./animacion.js"></script>
+  
 </footer>
 );
 };

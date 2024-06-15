@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Register.css';
 import { Link } from 'react-router-dom';
+import AnimationComponent from '../Components/AnimationComponent/AnimationComponent';
 
 const Register = () => {
   const [nombre, setNombre] = useState('');
@@ -65,6 +66,12 @@ const Register = () => {
 
   return (
     <div className="register-wrapper">
+
+
+    
+      <AnimationComponent effect="cicloInfinito" framesFolder="Thor" framePrefix="Thor" />
+
+
       <div className="register-container">
         <h2 className="register-title">REGISTRATE</h2>
         {successMessage && <p className="success-message">{successMessage}</p>}

@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css'; // Importa los estilos CSS 
 import './Detail.css'; // Importa los estilos CSS personalizados para el componente Detail
 import CustomDatePicker from '../Components/CustomDatePicker/CustomDatePicker';
 import Calendario from '../Components/Calendario/Calendario';
+import AnimationComponent from '../Components/AnimationComponent/AnimationComponent';
 //import CustomCalendar from '../Components/CustomCalendar/CustomCalendar';
 
 const Detail = ({ products }) => { // Define el componente Detail que recibe una prop llamada products
@@ -171,6 +172,8 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
                 />
 
           </div>
+
+
 
             </div>
         
