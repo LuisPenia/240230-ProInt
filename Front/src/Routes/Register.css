@@ -1,5 +1,5 @@
 .register-wrapper {
-    background-image: url('../Components/AnimationComponent/ThorFondo.jpg');
+    background-image: url('../Components/AnimationComponent/DarkVaderFondo.jpeg');
     min-height: 71vh;
     display: flex;
     justify-content: center;
@@ -9,6 +9,10 @@
     background-position: center;
   }
   
+  .registerAnimationComponent {
+    color: #f8c458;
+  }
+
   .register-container {
     max-width: 400px;
     width: 100%;

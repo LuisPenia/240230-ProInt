@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import './AnimationComponent.css'
 
-const AnimationComponent = ({ effect, framesFolder, framePrefix }) => {
+const AnimationComponent = ({ effect, framesFolder, framePrefix, frameQuantity, frameForSecond }) => {
   const [frames, setFrames] = useState([]);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isReverse, setIsReverse] = useState(false);
+  const [key, setKey] = useState(0);
 
   useEffect(() => {
     // Cargar los fotogramas desde el repositorio utilizando importación dinámica
     const loadFrames = async () => {
-      const frameCount = 50; // Número total de fotogramas
+      const frameCount = frameQuantity; // Número total de fotogramas
       const framePaths = [];
 
       for (let i = 1; i <= frameCount; i++) {
@@ -48,15 +50,22 @@ const AnimationComponent = ({ effect, framesFolder, framePrefix }) => {
           }
         }
       }
-    }, 100);
+    }, frameForSecond);
 
     return () => clearInterval(interval);
-  }, [currentFrame, effect, frames, isReverse]);
+  }, [currentFrame, effect, frames, isReverse, key]);
+
+  
+  const handleClick = () => {
+    setCurrentFrame(0); // Reiniciar a la primera imagen
+    setKey(prevKey => prevKey + 1); // Cambiar la clave para reiniciar el efecto
+  };
+  
 
   return (
-    <div>
+    <div className='AnimationComponent-contenedorImagen'  onClick={handleClick}>
       {frames.length > 0 && (
-        <img src={frames[currentFrame]} alt={`Frame ${currentFrame}`} />
+        <img className='AnimationComponent-Imagen' src={frames[currentFrame]} alt={`Frame ${currentFrame}`} />
       )}
     </div>
   );

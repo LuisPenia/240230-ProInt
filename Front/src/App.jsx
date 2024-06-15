@@ -18,7 +18,6 @@ import UserFilter from './Routes/UserFilter'
 
 function App() {
 
-
   const [products, setProducts] = useState(
 [
 
@@ -77,7 +76,6 @@ function App() {
 
   
 ]);
-
 
 
 //console.log(products);

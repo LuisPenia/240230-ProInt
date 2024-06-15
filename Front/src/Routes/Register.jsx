@@ -64,13 +64,23 @@ const Register = () => {
     }
   };
 
+  //<AnimationComponent effect="cicloInfinito" framesFolder="Thor" framePrefix="Thor" />
+
+
   return (
     <div className="register-wrapper">
 
 
     
-      <AnimationComponent effect="cicloInfinito" framesFolder="Thor" framePrefix="Thor" />
-
+      <div className="registerAnimationComponent" >
+        <AnimationComponent 
+        effect="repetirUna"S
+        framesFolder="DarkVader"
+        framePrefix="DarkVader"
+        frameQuantity={40}
+        frameForSecond={40} />
+      </div>
+      
 
       <div className="register-container">
         <h2 className="register-title">REGISTRATE</h2>

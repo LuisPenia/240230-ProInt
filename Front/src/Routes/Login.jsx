@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import AnimationComponent from '../Components/AnimationComponent/AnimationComponent';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -38,6 +39,20 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
+
+
+
+      <div >
+        <AnimationComponent 
+        effect="cicloInfinito"
+        framesFolder="Thor"
+        framePrefix="Thor"
+        frameQuantity={50}
+        frameForSecond={40} />
+      </div>
+      
+
+
       <div className="login-container">
         <div className="login-content">
           <h2 className="login-title">ACCESO</h2>
