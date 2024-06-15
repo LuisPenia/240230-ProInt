@@ -10,13 +10,13 @@
 }
 
 .Detail-imgContent {
-  width: 10vw;
+  width: 40%;
   height: 60vh; /* Altura del 80% del viewport */
   display: flex;
   justify-content: left;
   align-items: center;
   overflow: hidden;
-  border: solid 3px  blue ;
+  border: solid 3px white;
 }
 
 .Detail-imgContent img {
@@ -26,12 +26,12 @@
 }
 
 .Detail-textContent {
-  width: 10vw;
+  width: 20vw;
   height: 60vh; /* Altura del 80% del viewport */
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 3px  blue ;
+  border: solid 3px white ;
 }
 
 .Detail-textContent a {
@@ -39,12 +39,12 @@
 }
 
 .Detail-calendarContent {
-  background-color: aqua;
+  background-color: white;
 
-  width: 80vw;
+  width: 40vw;
   height: 60vh; /* Altura del 80% del viewport */
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 3px blue ;
+  border: solid 3px white ;
 }
