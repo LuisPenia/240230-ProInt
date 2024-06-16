@@ -74,11 +74,11 @@ const Register = () => {
     
       <div className="registerAnimationComponent" >
         <AnimationComponent 
-        effect="repetirUna"S
+        effect="repetirUna"
         framesFolder="DarkVader"
         framePrefix="DarkVader"
         frameQuantity={40}
-        frameForSecond={40} />
+        frameForSecond={50} />
       </div>
       
 

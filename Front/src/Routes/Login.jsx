@@ -8,9 +8,11 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    
     try {
       const response = await fetch('http://localhost:8081/usuario/login', {
         method: 'POST',
@@ -48,9 +50,14 @@ const Login = () => {
         framesFolder="Thor"
         framePrefix="Thor"
         frameQuantity={50}
-        frameForSecond={40} />
+        frameForSecond={90} />
       </div>
       
+
+
+
+
+
 
 
       <div className="login-container">
@@ -100,8 +107,20 @@ const Login = () => {
           </form>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+
     </div>
   );
 };
 
 export default Login;
+
+

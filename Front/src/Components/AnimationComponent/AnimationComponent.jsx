@@ -12,12 +12,13 @@ const AnimationComponent = ({ effect, framesFolder, framePrefix, frameQuantity, 
     const loadFrames = async () => {
       const frameCount = frameQuantity; // Número total de fotogramas
       const framePaths = [];
-
+      
       for (let i = 1; i <= frameCount; i++) {
         const frameNumber = i.toString().padStart(4, '0');
         const framePath =  `./${framesFolder}/${framePrefix}_${frameNumber}.png`;
         const frameModule = await import(framePath);
         framePaths.push(frameModule.default);
+       
       }
 
       setFrames(framePaths);
@@ -27,13 +28,15 @@ const AnimationComponent = ({ effect, framesFolder, framePrefix, frameQuantity, 
   }, []);
 
   useEffect(() => {
+    
     const interval = setInterval(() => {
       if (effect === 'repetirUna') {
         if (currentFrame < frames.length - 1) {
           setCurrentFrame(currentFrame + 1);
         }
       } else if (effect === 'cicloInfinito') {
-        console.log(frames[currentFrame]);
+        console.log( currentFrame );
+  
         setCurrentFrame((currentFrame + 1) % frames.length);
       } else if (effect === 'cicloReverso') {
         if (isReverse) {
