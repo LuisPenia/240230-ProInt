@@ -15,6 +15,14 @@
     transform: translateX(0);
     opacity: 1;
   }
+
+  @media (max-width: 750px) {
+  
+    .slidingImage-container.slide-in img{
+      display: none;
+    }
+
+  }
   
 
 

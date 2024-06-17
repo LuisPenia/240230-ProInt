@@ -60,15 +60,16 @@ const AnimationComponent = ({ effect, framesFolder, framePrefix, frameQuantity, 
 
   
   const handleClick = () => {
+    window.scrollTo(0, 0); // Desplaza la ventana a la parte superior al montar el componente
     setCurrentFrame(0); // Reiniciar a la primera imagen
     setKey(prevKey => prevKey + 1); // Cambiar la clave para reiniciar el efecto
   };
   
 
   return (
-    <div className='AnimationComponent-contenedorImagen'  onClick={handleClick}>
+    <div onClick={handleClick}>
       {frames.length > 0 && (
-        <img className='AnimationComponent-Imagen' src={frames[currentFrame]} alt={`Frame ${currentFrame}`} />
+        <img src={frames[currentFrame]} alt={`Frame ${currentFrame}`} />
       )}
     </div>
   );

@@ -61,8 +61,8 @@ const Header = () => {
         </Link>
       </div>
   
-      <SlidingImage />
-      <SlidingImage_1/>
+      <SlidingImage  />
+      <SlidingImage_1 />
 
       <div className='header__right'>
         {isLoggedIn ? (
