@@ -61,8 +61,7 @@ const Header = () => {
         </Link>
       </div>
   
-      <SlidingImage  />
-      <SlidingImage_1 />
+
 
       <div className='header__right'>
         {isLoggedIn ? (
@@ -104,3 +103,6 @@ const Header = () => {
 };
 
 export default Header;
+/*
+<SlidingImage  />
+<SlidingImage_1 />*/

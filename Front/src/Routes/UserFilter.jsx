@@ -16,7 +16,7 @@ const UserFilter = ({ products }) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [modalContent, setModalContent] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 6;
+  const productsPerPage = 10;
   const [suggestions, setSuggestions] = useState([]);
 
   

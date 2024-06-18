@@ -1,6 +1,8 @@
 /* App.css */
 .sliding_1Image-container {
     overflow: hidden;
+    display: flex;
+    align-items:;
   }
   
   .sliding_1Image-container img {

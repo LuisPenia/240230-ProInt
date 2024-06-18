@@ -1,5 +1,7 @@
 .login-wrapper {
-  background-image: url('../Components/AnimationComponent/ThorFondo.jpg');
+  background-image: url('../Components/AnimationComponent/ThorFondo.jpg'),
+    url('../Components/AnimationComponent/ThorFondo_.jpg'),
+    url('../Components/AnimationComponent/ThorFondo_r.jpg'),;
   min-height: 71vh;
   display: flex;
   justify-content: center;
@@ -7,7 +9,22 @@
   background-color: #F6E8ED;
   background-size: cover;
   background-position: center;
+  animation: cambiarFondo 2s linear infinite alternate;
   }
+
+  @keyframes cambiarFondo {
+    0% {
+      background-image: url('../Components/AnimationComponent/ThorFondo.jpg');
+    }
+    20% {
+      background-image: url('../Components/AnimationComponent/ThorFondo_.jpg');
+    }
+    100% {
+      background-image: url('../Components/AnimationComponent/ThorFondo_r.jpg');
+    }
+  }
+
+
   .login-container {
   max-width: 400px;
   width: 100%;
