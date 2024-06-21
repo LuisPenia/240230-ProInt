@@ -8,6 +8,7 @@ const AdminPrivilegios = () => {
 
   useEffect(() => {
     fetchData();
+    console.log(data);
   }, []);
 
   const fetchData = () => {

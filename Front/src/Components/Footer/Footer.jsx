@@ -22,7 +22,7 @@ return (
           framesFolder="LogoMov"
           framePrefix="LogoMov"
           frameQuantity={30}
-          frameForSecond={15}/>
+          frameForSecond={25}/>
 
       
       <p className="footer-copyright">

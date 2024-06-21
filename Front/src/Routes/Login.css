@@ -16,14 +16,14 @@
     0% {
       background-image: url('../Components/AnimationComponent/ThorFondo.jpg');
     }
-    20% {
+    15% {
       background-image: url('../Components/AnimationComponent/ThorFondo_.jpg');
     }
+    
     100% {
       background-image: url('../Components/AnimationComponent/ThorFondo_r.jpg');
     }
   }
-
 
   .login-container {
   max-width: 400px;

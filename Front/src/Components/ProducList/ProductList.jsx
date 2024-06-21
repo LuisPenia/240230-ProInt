@@ -28,7 +28,7 @@ const ProductList = ({ products }) => {
 
 
   useEffect(() => {
-    console.log(products);
+    //console.log(products);
     const shuffledArray = shuffleArray(products);
     setShuffledProducts(shuffledArray.slice(0, 10));
   }, [products]);

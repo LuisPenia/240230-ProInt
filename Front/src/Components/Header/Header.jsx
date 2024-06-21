@@ -3,17 +3,55 @@ import { Link } from 'react-router-dom';
 import menuIcon from "../../assets/HamburguesaIcon/menu.svg";
 import closeIcon from "../../assets/HamburguesaIcon/close.svg";
 import './Header.css';
-import SlidingImage from '../Miku/SlidingImage';  // Asegúrate de ajustar la ruta según tu estructura de proyecto
-import SlidingImage_1 from '../Miku/SlidingImage_1';
+//import SlidingImage from '../Miku/SlidingImage';  // Asegúrate de ajustar la ruta según tu estructura de proyecto
+//import SlidingImage_1 from '../Miku/SlidingImage_1';
 import AnimationComponent from '../AnimationComponent/AnimationComponent';
 
 const Header = () => {
 
-  const [isOpen, setIsOpen] = useState(false);
+
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const [isOpen, setIsOpen] = useState(false);
   const [userName, setUserName] = useState('');
   const [userLastName, setUserLastName] = useState('');
 
+
+
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+
+  const fetchData = () => {
+    fetch('https://script.google.com/macros/s/AKfycbyKuRs2XkSXW8ZuPhu3T_gcxSwuJXzasi3A1pL4-mqrh8QZgdKzFix8WesPxCDNml5u_A/exec?action=getUser')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error);
+        setLoading(false);
+      });
+  };
+
+
+  useEffect(() => {
+    fetchData();
+    console.log('Hola');
+    console.log(data);
+  }, []);
+
+
+
+/*
   useEffect(() => {
     // Simular obtención de datos del usuario desde el backend
     const fetchUserData = async () => {
@@ -29,7 +67,7 @@ const Header = () => {
     };
 
     fetchUserData();
-  }, []);
+  }, []);*/
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -68,7 +106,7 @@ const Header = () => {
           <>
             <div className="header__user">
               <Link to={"/Perfil"}>
-                <div className="header__user-initials">
+                <div className="header__user-initials"> LP
                   {getInitials()}
                 </div>
               </Link>
@@ -79,10 +117,10 @@ const Header = () => {
           </>
         ) : (
           <>
-            <Link to={"/Register"}>
+            <Link className='headerRegisterDiv' to={"/Register"}>
               <button className='header__button b2'>Crear cuenta</button>
             </Link>
-            <Link to={"/Login"}>
+            <Link className='headerRegisterDiv' to={"/Login"}>
               <button className='header__button b1'>Iniciar sesión</button>
             </Link>
             <button className='header__hamburger' onClick={toggleMenu}>
@@ -91,6 +129,7 @@ const Header = () => {
           </>
         )}
       </div>
+
       {isOpen && !isLoggedIn && (
         <div className='header__menu'>
           <Link to="/Register" className='header__menu-item'>Crear cuenta</Link>
