@@ -35,7 +35,8 @@ const AnimationComponent = ({ effect, framesFolder, framePrefix, frameQuantity, 
           setCurrentFrame(currentFrame + 1);
         }
       } else if (effect === 'cicloInfinito') {
-        //console.log( currentFrame );
+        //console.log(currentFrame);
+        
        //console.log(turnos );
   
         setCurrentFrame((currentFrame + 1) % frames.length);

@@ -77,7 +77,7 @@ const Register = () => {
         effect="repetirUna"
         framesFolder="DarkVader"
         framePrefix="DarkVader"
-        frameQuantity={40}
+        frameQuantity={48}
         frameForSecond={50} />
       </div>
       
