@@ -14,6 +14,12 @@ import AdminFilter from './Routes/AdminFilter'
 import Perfil from './Routes/Perfil'
 import AdminPrivilegios from './Routes/AdminPrivilegios'
 import UserFilter from './Routes/UserFilter'
+import { UserProvider } from './UserContext';
+
+
+
+
+
 
 
 function App() {
@@ -85,6 +91,7 @@ setProducts([...products, newProduct]);
 };
 
 return (
+  <UserProvider>
   <div>
     <Header />
     <Routes>
@@ -107,6 +114,7 @@ return (
       </Routes>
     <Footer />
   </div>
+  </UserProvider>
 );
 }
 

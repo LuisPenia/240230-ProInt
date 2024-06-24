@@ -2,12 +2,14 @@ import { useState } from 'react';
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import AnimationComponent from '../Components/AnimationComponent/AnimationComponent';
+import { useUser } from '../../src/UserContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { login } = useUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,11 +22,9 @@ const Login = () => {
       const user = data.find(user => user.email === email && user.password === password);
 
       if (user) {
-        console.log(user);
         console.log('Login exitoso');
-        // Aquí puedes guardar el estado de sesión si lo necesitas
-        // Por ejemplo: localStorage.setItem('user', JSON.stringify(user));
-        navigate('/dashboard'); // Redirige al usuario a la página del dashboard
+        login(user);
+        navigate('/dashboard');
       } else {
         setError('Credenciales incorrectas. Por favor, verifica tu email y contraseña.');
       }

@@ -1,83 +1,52 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import menuIcon from "../../assets/HamburguesaIcon/menu.svg";
 import closeIcon from "../../assets/HamburguesaIcon/close.svg";
 import './Header.css';
-//import SlidingImage from '../Miku/SlidingImage';  // Asegúrate de ajustar la ruta según tu estructura de proyecto
-//import SlidingImage_1 from '../Miku/SlidingImage_1';
 import AnimationComponent from '../AnimationComponent/AnimationComponent';
+import { useUser } from '../../../src/UserContext';
 
 const Header = () => {
-
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [isOpen, setIsOpen] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [userLastName, setUserLastName] = useState('');
-
-
-
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-
-  useEffect(() => {
-    // Simular obtención de datos del usuario desde el backend
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch('/api/user');
-        const data = await response.json();
-        setUserName(data.firstName);
-        setUserLastName(data.lastName);
-        setIsLoggedIn(true); // Establecer isLoggedIn a true después de obtener los datos del usuario
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchUserData();
-  }, []);
+  const { user, logout } = useUser();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUserName('');
-    setUserLastName('');
+    logout();
   };
 
   const getInitials = () => {
-    const firstInitial = userName.charAt(0).toUpperCase();
-    const lastInitial = userLastName.charAt(0).toUpperCase();
-    return `${firstInitial}${lastInitial}`;
+    if (user) {
+      const firstInitial = user.name.charAt(0).toUpperCase();
+      const lastInitial = user.lastname.charAt(0).toUpperCase();
+      return `${firstInitial}${lastInitial}`;
+    }
+    return '';
   };
 
   return (
     <header className='header'>
-
       <div className='header__left'>
         <Link to="/">
           <AnimationComponent
-          effect="repetirUna"
-          framesFolder="LogoMov"
-          framePrefix="LogoMov"
-          frameQuantity={30}
-          frameForSecond={30}/>
+            effect="repetirUna"
+            framesFolder="LogoMov"
+            framePrefix="LogoMov"
+            frameQuantity={30}
+            frameForSecond={30}
+          />
         </Link>
       </div>
-  
-
 
       <div className='header__right'>
-        {isLoggedIn ? (
+        {user ? (
           <>
             <div className="header__user">
               <Link to={"/Perfil"}>
-                <div className="header__user-initials"> LP
+                <div className="header__user-initials">
                   {getInitials()}
                 </div>
               </Link>
@@ -100,14 +69,12 @@ const Header = () => {
           </>
         )}
       </div>
-
-      {isOpen && !isLoggedIn && (
+      {isOpen && !user && (
         <div className='header__menu'>
           <Link to="/Register" className='header__menu-item'>Crear cuenta</Link>
           <Link to="/Login" className='header__menu-item'>Iniciar sesión</Link>
         </div>
       )}
-      
     </header>
   );
 };
