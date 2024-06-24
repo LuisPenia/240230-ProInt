@@ -45,19 +45,69 @@ async function getTurnos() {
             purchaseHistoryDate:   fila[10],
        };
        turnos.push(nuevoTurno);
-       console.log("fila =" + fila)
+       //console.log("fila =" + fila)
     });
 
-    console.log("console.log(turnos);")
-    console.log(turnos);
+    //console.log("console.log(turnos);")
+    console.log(turnos.length);
 
     const output = range.values.reduce(
         (str, row) => `${str}${row[0]}, ${row[1]}, ${row[2]}, ${row[3]}, ${row[4]}\n`,
         'id,	name,	email,	role,	admin:\n');
         //'Name, LoL:\n');
     document.getElementById('content').innerText = output;
+
+
+    editTurnos(turnos.length+1);
     
   }
 
 
 
+async function editTurnos(contenido){
+  let numero = contenido-1;
+  
+  const update = [
+    numero.toString(),
+    'anita',
+    'anita@mail',
+    'cliente',
+    'FALSE',
+    'pass',
+    'contenido.lastname',
+    'contenido.staff',
+    'contenido.purchaseHistoryId',
+    'contenido.purchaseHistorySale',
+    'contenido.purchaseHistoryDate',
+  ];
+
+
+  const filaEditar = contenido;
+
+  response = await gapi.client.sheets.spreadsheets.values.update({
+    spreadsheetId: '1K24nLbfVkU_vFfnZuhDpkxXC1AkhxwwuTrllYqAdjqQ',
+    range: `UserLoginAdmin!A${filaEditar}:KA${filaEditar}`,
+    values:[update],
+    valueInputOption:"USER_ENTERED"
+  });
+  return response;
+}
+
+
+
+/*
+
+  const update = [
+    contenido.id,
+    contenido.name,
+    contenido.email,
+    contenido.role,
+    contenido.admin,
+    contenido.password,
+    contenido.lastname,
+    contenido.staff,
+    contenido.purchaseHistoryId,
+    contenido.purchaseHistorySale,
+    contenido.purchaseHistoryDate,
+  ];
+*/

@@ -1,65 +1,50 @@
 import { useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AnimationComponent from '../Components/AnimationComponent/AnimationComponent';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
 
-    
     try {
-      const response = await fetch('http://localhost:8081/usuario/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxOusAuK1hvMKTbWHTxYGADsIOUf_UvoGXFF2aD-mkAO_PAL29xeG4dggo0MWNAWFY1mg/exec?action=getUser');
+      const data = await response.json();
 
-      if (response.ok) {
-        // Inicio de sesión exitoso
-        // Aquí puedes redirigir al usuario a otra página o realizar alguna acción adicional
-        console.log('Inicio de sesión exitoso');
-      } else if (response.status === 401) {
-        // Credenciales incorrectas
-        setError('Algunos de los datos ingresados son incorrectos');
+      const user = data.find(user => user.email === email && user.password === password);
+
+      if (user) {
+        console.log(user);
+        console.log('Login exitoso');
+        // Aquí puedes guardar el estado de sesión si lo necesitas
+        // Por ejemplo: localStorage.setItem('user', JSON.stringify(user));
+        navigate('/dashboard'); // Redirige al usuario a la página del dashboard
       } else {
-        // Otro error
-        setError('Ha ocurrido un error inesperado');
+        setError('Credenciales incorrectas. Por favor, verifica tu email y contraseña.');
       }
     } catch (error) {
-      console.error('Error en el inicio de sesión:', error);
-      setError('Ha ocurrido un error inesperado');
+      setError('Error en el inicio de sesión. Por favor, intenta de nuevo más tarde.');
     }
   };
 
   return (
     <div className="login-wrapper">
-
-
-
-      <div >
-        <AnimationComponent 
-        effect="cicloInfinito"
-        framesFolder="Thor"
-        framePrefix="Thor"
-        frameQuantity={50}
-        frameForSecond={63} />
+      <div>
+        <AnimationComponent
+          effect="cicloInfinito"
+          framesFolder="Thor"
+          framePrefix="Thor"
+          frameQuantity={50}
+          frameForSecond={63}
+        />
       </div>
       
-
-
-
-
-
-
-
       <div className="login-container">
         <div className="login-content">
           <h2 className="login-title">ACCESO</h2>
@@ -107,20 +92,8 @@ const Login = () => {
           </form>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
     </div>
   );
 };
 
 export default Login;
-
-

@@ -76,6 +76,8 @@ function handleAuthClick() {
     document.getElementById('authorize_button').innerText = 'Refresh';
     //await listMajors();
     await getTurnos();
+    //await editTurnos();
+
   };
 
 

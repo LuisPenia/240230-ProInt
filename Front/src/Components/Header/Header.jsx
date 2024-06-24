@@ -10,7 +10,7 @@ import AnimationComponent from '../AnimationComponent/AnimationComponent';
 const Header = () => {
 
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const [userName, setUserName] = useState('');
@@ -23,35 +23,6 @@ const Header = () => {
   const [error, setError] = useState(null);
 
 
-
-  const fetchData = () => {
-    fetch('https://script.google.com/macros/s/AKfycbyKuRs2XkSXW8ZuPhu3T_gcxSwuJXzasi3A1pL4-mqrh8QZgdKzFix8WesPxCDNml5u_A/exec?action=getUser')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setLoading(false);
-      });
-  };
-
-
-  useEffect(() => {
-    fetchData();
-    console.log('Hola');
-    console.log(data);
-  }, []);
-
-
-
-/*
   useEffect(() => {
     // Simular obtención de datos del usuario desde el backend
     const fetchUserData = async () => {
@@ -67,7 +38,7 @@ const Header = () => {
     };
 
     fetchUserData();
-  }, []);*/
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -95,7 +66,7 @@ const Header = () => {
           framesFolder="LogoMov"
           framePrefix="LogoMov"
           frameQuantity={30}
-          frameForSecond={15}/>
+          frameForSecond={30}/>
         </Link>
       </div>
   
