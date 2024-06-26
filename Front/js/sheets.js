@@ -2,7 +2,7 @@
  * Print the names and majors of students in a sample spreadsheet:
  * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
  */
-async function getTurnos() {
+  async function getTurnos() {
     let turnos;
     let response;
     try {
@@ -64,34 +64,34 @@ async function getTurnos() {
 
 
 
-async function editTurnos(contenido){
-  let numero = contenido-1;
-  
-  const update = [
-    numero.toString(),
-    'anita',
-    'anita@mail',
-    'cliente',
-    'FALSE',
-    'pass',
-    'contenido.lastname',
-    'contenido.staff',
-    'contenido.purchaseHistoryId',
-    'contenido.purchaseHistorySale',
-    'contenido.purchaseHistoryDate',
-  ];
+  async function editTurnos(contenido){
+    let numero = contenido-1;
+    
+    const update = [
+      numero.toString(),
+      'anita',
+      'anita@mail',
+      'cliente',
+      'FALSE',
+      'pass',
+      'contenido.lastname',
+      'contenido.staff',
+      'contenido.purchaseHistoryId',
+      'contenido.purchaseHistorySale',
+      'contenido.purchaseHistoryDate',
+    ];
 
 
-  const filaEditar = contenido;
+    const filaEditar = contenido;
 
-  response = await gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId: '1K24nLbfVkU_vFfnZuhDpkxXC1AkhxwwuTrllYqAdjqQ',
-    range: `UserLoginAdmin!A${filaEditar}:KA${filaEditar}`,
-    values:[update],
-    valueInputOption:"USER_ENTERED"
-  });
-  return response;
-}
+    response = await gapi.client.sheets.spreadsheets.values.update({
+      spreadsheetId: '1K24nLbfVkU_vFfnZuhDpkxXC1AkhxwwuTrllYqAdjqQ',
+      range: `UserLoginAdmin!A${filaEditar}:KA${filaEditar}`,
+      values:[update],
+      valueInputOption:"USER_ENTERED"
+    });
+    return response;
+  }
 
 
 

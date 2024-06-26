@@ -9,8 +9,8 @@
     background-position: center;
   }
   
-  .registerAnimationComponent {
-    color: #f8c458;
+  .registerAnimationComponent div img {
+     height: 50vh;
   }
 
   .register-container {

@@ -17,13 +17,7 @@ import UserFilter from './Routes/UserFilter'
 import { UserProvider } from './UserContext';
 
 
-
-
-
-
-
 function App() {
-
   const [products, setProducts] = useState(
 [
 
@@ -110,7 +104,7 @@ return (
       <Route path="/userFilter" element={<UserFilter products={products} />} />
       <Route path="/AdminPrivilegios" element={<AdminPrivilegios/>} />
       <Route path="/detail/:productId" element={<Detail products={products} />} />
-      <Route path='/Perfil' element={<Perfil/>} />
+      <Route path='/Perfil' element={<Perfil products={products} />} />
       </Routes>
     <Footer />
   </div>

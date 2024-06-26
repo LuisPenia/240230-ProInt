@@ -24,7 +24,7 @@ const Login = () => {
       if (user) {
         console.log('Login exitoso');
         login(user);
-        navigate('/dashboard');
+        navigate('/');
       } else {
         setError('Credenciales incorrectas. Por favor, verifica tu email y contraseña.');
       }
@@ -35,7 +35,9 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
-      <div>
+
+      
+      <div className='loginAnimation'>
         <AnimationComponent
           effect="cicloInfinito"
           framesFolder="Thor"

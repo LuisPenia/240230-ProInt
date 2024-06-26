@@ -50,9 +50,11 @@ const Header = () => {
                   {getInitials()}
                 </div>
               </Link>
-              <button className="header__logout" onClick={handleLogout}>
+              <Link className="header__logout" to={"/"}>
+              <button className="header__logout"  onClick={handleLogout}>
                 Cerrar sesión
               </button>
+              </Link>
             </div>
           </>
         ) : (

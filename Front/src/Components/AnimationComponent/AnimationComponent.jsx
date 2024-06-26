@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './AnimationComponent.css'
+
 
 const AnimationComponent = ({ effect, framesFolder, framePrefix, frameQuantity, frameForSecond }) => {
   const [frames, setFrames] = useState([]);
