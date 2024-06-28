@@ -9,7 +9,9 @@ const Perfil = ({ products }) => {
   const [ventas, setVentas] = useState([]);
   const [mercaderia, setMercaderia] = useState([]);
   const [currentProducts, setCurrentProducts] = useState([]);
-
+  const entrega = "Entrega: ";
+  const devolucion = "Devolución: ";
+  
   useEffect(() => {
     if (user.purchaseHistoryDate && user.purchaseHistorySale && user.purchaseHistoryId) {
       const fechasArray = user.purchaseHistoryDate.split("|");
@@ -68,7 +70,10 @@ const Perfil = ({ products }) => {
                     <p>{product.name}</p>
                   </td>
                   <td>{ventas[reversedIndex]}</td>
-                  <td>{fechas[reversedIndex]}</td>
+                  <td>
+                    <div><p>{entrega + fechas[reversedIndex].substring(0, fechas[reversedIndex].indexOf(","))}</p></div>
+                    <div><p>{devolucion + fechas[reversedIndex].substring(fechas[reversedIndex].indexOf(",") + 1)}</p></div>
+                  </td>
                 </tr>
               );
             })}
