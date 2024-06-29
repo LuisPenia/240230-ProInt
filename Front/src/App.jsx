@@ -5,7 +5,7 @@ import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
 import Admin from './Routes/Admin'
 import AddProduct from './Routes/AddProduct'
-import { useState } from 'react';
+import { useState } from 'react'
 import Detail from './Routes/Detail'
 import Register from './Routes/Register'
 import AdminCaracteristicas from './Routes/AdminCaracteristicas'
@@ -14,7 +14,9 @@ import AdminFilter from './Routes/AdminFilter'
 import Perfil from './Routes/Perfil'
 import AdminPrivilegios from './Routes/AdminPrivilegios'
 import UserFilter from './Routes/UserFilter'
-import { UserProvider } from './UserContext';
+import { UserProvider } from './UserContext'
+
+
 
 
 function App() {
