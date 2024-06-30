@@ -5,7 +5,7 @@ import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
 import Admin from './Routes/Admin'
 import AddProduct from './Routes/AddProduct'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Detail from './Routes/Detail'
 import Register from './Routes/Register'
 import AdminCaracteristicas from './Routes/AdminCaracteristicas'
@@ -18,10 +18,9 @@ import UserFilter2 from './Routes/UserFilter2'
 import { UserProvider } from './UserContext'
 import Buscador from './Components/Home/Buscador';
 
-
-
-
 function App() {
+
+/*
   const [products, setProducts] = useState(
 [
 
@@ -79,8 +78,29 @@ function App() {
 
 
   
-]);
+]);*/
 
+const [products, setProducts] = useState([]);
+
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const apiUrl = 'https://script.google.com/macros/s/AKfycbxcw4Xd2EnawRGY5lp3xwr8q-5CuVj1TkzPy1QBgih-h0mzA_wJ3ichk-GUNQujzyE3/exec?action=getProduct';
+        
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`Error en la solicitud: ${response.statusText}`);
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error al obtener los datos:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
 //console.log(products);
 const handleAddProduct = (newProduct) => {
@@ -117,6 +137,5 @@ return (
   </UserProvider>
 );
 }
-
 
 export default App
