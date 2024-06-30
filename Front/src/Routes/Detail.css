@@ -10,7 +10,7 @@
 }
 
 .Detail-imgContent {
-  width: 40%;
+  width: 40vw;
   height: 60vh; /* Altura del 80% del viewport */
   display: flex;
   justify-content: left;

@@ -6,7 +6,9 @@ import './Detail.css'; // Importa los estilos CSS personalizados para el compone
 import CustomDatePicker from '../Components/CustomDatePicker/CustomDatePicker';
 import Calendario from '../Components/Calendario/Calendario';
 import AnimationComponent from '../Components/AnimationComponent/AnimationComponent';
+import { useUser } from '../UserContext';
 //import CustomCalendar from '../Components/CustomCalendar/CustomCalendar';
+
 
 const Detail = ({ products }) => { // Define el componente Detail que recibe una prop llamada products
   const { productId } = useParams(); // Extrae el productId de los parámetros de la URL usando useParams
@@ -16,11 +18,23 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
     return <div>Product not found</div>;
   }
 
+  const { user } = useUser();
+
 
 
   
   useEffect(() => {
+
+    if (user){
+      console.log('logeado');
+    }else{
+      console.log('noLogeado');
+    };
+
     window.scrollTo(0, 0); // Desplaza la ventana a la parte superior al montar el componente
+    /*console.log(product);
+    console.log(products);
+   
     console.log(reservations);
     console.log(reservations[0]);
     console.log(reservations[0].startDate);
@@ -32,7 +46,7 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
     console.log(fechaActual.getDate());
     console.log(fechaActual.getMonth()+1);
     console.log(fechaActual.getDay());
-    console.log('primerDia = ' + primerDia(fechaActual.getDate()))
+    console.log('primerDia = ' + primerDia(fechaActual.getDate()))*/
 
   }, []); // El array vacío como dependencia asegura que esto ocurra solo una vez al montar el componente
 
