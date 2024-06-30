@@ -1,4 +1,4 @@
-.card {
+.filter_card {
     height: 90%;
     background-color: white;
     margin: 5px;
@@ -12,7 +12,7 @@
   }
 
 /* Estilos específicos para la tarjeta con filtro */
-.card-filter {
+.filter_card-filter {
     color: black;
     font-size: 14px; /* Ajusta el tamaño de la letra para toda la tarjeta */
     display: flex;
@@ -22,12 +22,12 @@
   }
   
   /* Estilos para el contenido de la imagen */
-  .imageContent {
+  .filter_imageContent {
     text-align: center;
     margin-bottom: 10px;
   }
   
-  .imageContent img {
+  .filter_imageContent img {
     max-width: 100%;
     border-radius: 8px;
   }

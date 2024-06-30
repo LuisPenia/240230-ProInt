@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import "./CardFilter.css";
 
 const CardFilter = ({ product }) => {
+
+  //useEffect(() => {console.log(product);},[product]);
 
     if (!product || !product.id || !product.name ||!product.mainCategory|| !product.description || !product.price || !product.imageUrl) {
         return null; // O puedes renderizar un componente de carga o un mensaje de error

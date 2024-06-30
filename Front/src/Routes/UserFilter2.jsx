@@ -19,26 +19,44 @@ const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que 
             if (state.consulta) { //si existe una consulta en el estado, entonces proceder a filtrar.
                 filtered = filtered.filter(product => product.name.toLowerCase().includes(state.consulta.toLowerCase()));
             } //filtro por nombre, todos los productos de mi lista.
-
+            
+            
             // Filtra los productos según las fechas
             if (state.fechaInicial && state.fechaFinal) { //si existen, proceder.
                 const fechaInicial = new Date(state.fechaInicial); // Convierte la fecha inicial a un objeto Date
                 const fechaFinal = new Date(state.fechaFinal); // Convierte la fecha final a un objeto Date
 
+
                 filtered = filtered.filter(product => {
-                    const productStartDate = new Date(product.startDate); //Convierte la fecha inicial del producto a un objeto Date
-                    const productEndDate = new Date(product.endDate);
+
+                let productStartDate  = new Date("2000-01-01"); //Convierte la fecha inicial del producto a un objeto Date
+                let productEndDate    = new Date("2000-01-02"); 
+                   
+                if (product.reservas != "") {
+                    productStartDate = new Date(product.reservas.substring(0, product.reservas.indexOf(","))); //Convierte la fecha inicial del producto a un objeto Date
+                    productEndDate   = new Date(product.reservas.substring(product.reservas.indexOf(",") + 1)); 
+                }
+
                 // Verifica que el rango de fechas del producto no se superponga con el rango de fechas buscado
                 return (productEndDate < fechaInicial || productStartDate > fechaFinal);
+                
                 });
+               
             }
-
+            
             setFilteredProducts(filtered); // Actualiza el estado con los productos filtrados
             setCurrentPage(1); // Reset page to 1 whenever filters change
         } else {
             setFilteredProducts(products); // Si no hay estado, muestra todos los productos
         }
     }, [state, products]);
+
+    
+
+ //reservas[reversedIndex].substring(0, reservas[reversedIndex].indexOf(","))
+ //reservas[reversedIndex].substring(reservas[reversedIndex].indexOf(",") + 1)
+
+    //useEffect(()=>{console.log(product.reservas);},[product])
 
 
     const handlePrevPage = () => {

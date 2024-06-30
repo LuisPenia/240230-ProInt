@@ -86,7 +86,7 @@ const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const apiUrl = 'https://script.google.com/macros/s/AKfycbxcw4Xd2EnawRGY5lp3xwr8q-5CuVj1TkzPy1QBgih-h0mzA_wJ3ichk-GUNQujzyE3/exec?action=getProduct';
+        const apiUrl = 'https://script.google.com/macros/s/AKfycby68nFVpGDO4lUtUfi3SXg2qICKgcCDOwfIzywVgU6jaLB7OybUb5B_a4DTGvFYMxyx/exec?action=getProduct';
         
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -101,6 +101,9 @@ const [products, setProducts] = useState([]);
 
     fetchProducts();
   }, []);
+
+
+//useEffect(()=>{console.log(products)},[products]);
 
 //console.log(products);
 const handleAddProduct = (newProduct) => {
