@@ -133,29 +133,7 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
 
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
 
-              <div>
-                <p>Primer rango de fechas</p>
-                <DatePicker
-                  selected={startDate1}
-                  startDate={startDate1}
-                  endDate={endDate1}
-                  onSelect={(date) => setStartDate1(date)}
-                  onChange={(date) => setEndDate1(date)}
-                  customInput={<input style={{ border: '1px solid #ccc', padding: '10px' }} />}
-                />
-              </div>
 
-              <div>
-                <p>Segundo rango de fechas</p>
-                <DatePicker 
-                  selected={startDate2}
-                  startDate={startDate2}
-                  endDate={endDate2}
-                  onSelect={(date) => setStartDate2(date)}
-                  onChange={(date) => setEndDate2(date)}
-                  customInput={<input style={{ border: '1px solid #ccc', padding: '10px' }} />}
-                />
-              </div>
             
             </div>
 
@@ -219,3 +197,28 @@ const Detail = ({ products }) => { // Define el componente Detail que recibe una
 
 export default Detail; // Exporta el componente Detail para su uso en otras partes de la aplicación
 
+/*
+              <div>
+                <p>Primer rango de fechas</p>
+                <DatePicker
+                  selected={startDate1}
+                  startDate={startDate1}
+                  endDate={endDate1}
+                  onSelect={(date) => setStartDate1(date)}
+                  onChange={(date) => setEndDate1(date)}
+                  customInput={<input style={{ border: '1px solid #ccc', padding: '10px' }} />}
+                />
+              </div>
+
+              <div>
+                <p>Segundo rango de fechas</p>
+                <DatePicker 
+                  selected={startDate2}
+                  startDate={startDate2}
+                  endDate={endDate2}
+                  onSelect={(date) => setStartDate2(date)}
+                  onChange={(date) => setEndDate2(date)}
+                  customInput={<input style={{ border: '1px solid #ccc', padding: '10px' }} />}
+                />
+              </div>
+*/

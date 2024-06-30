@@ -4,19 +4,19 @@
   display: flex;
   flex-direction: row;
   margin: 20px 0px;
-  padding: 74px;
+
   background-color: white;
   color: black;
 }
 
 .Detail-imgContent {
-  width: 40vw;
+  width: 25vw;
   height: 60vh; /* Altura del 80% del viewport */
   display: flex;
   justify-content: left;
   align-items: center;
   overflow: hidden;
-  border: solid 3px white;
+  border: solid 1px white;
 }
 
 .Detail-imgContent img {
@@ -26,12 +26,12 @@
 }
 
 .Detail-textContent {
-  width: 20vw;
+  width: 15vw;
   height: 60vh; /* Altura del 80% del viewport */
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 3px white ;
+  border: solid 1px white ;
 }
 
 .Detail-textContent a {
@@ -41,10 +41,10 @@
 .Detail-calendarContent {
   background-color: white;
 
-  width: 40vw;
+  width: 60vw;
   height: 60vh; /* Altura del 80% del viewport */
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border: solid 3px white ;
+  border: solid 1px white ;
 }
