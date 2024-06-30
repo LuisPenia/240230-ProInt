@@ -16,7 +16,7 @@ const AnimationComponent = ({ effect, framesFolder, framePrefix, frameQuantity, 
       for (let i = 1; i <= frameCount; i++) {
         const frameNumber = i.toString().padStart(4, '0');
         const framePath =  `./${framesFolder}/${framePrefix}_${frameNumber}.png`;
-        const frameModule = await import(framePath);
+        const frameModule = await import(/* @vite-ignore */ framePath);
         framePaths.push(frameModule.default);
        
       }

@@ -15,6 +15,7 @@ import Perfil from './Routes/Perfil'
 import AdminPrivilegios from './Routes/AdminPrivilegios'
 import UserFilter from './Routes/UserFilter'
 import { UserProvider } from './UserContext'
+import Buscador from './Components/Home/Buscador';
 
 
 
@@ -107,6 +108,7 @@ return (
       <Route path="/AdminPrivilegios" element={<AdminPrivilegios/>} />
       <Route path="/detail/:productId" element={<Detail products={products} />} />
       <Route path='/Perfil' element={<Perfil products={products} />} />
+      <Route path="/buscador" element={<Buscador />} />
       </Routes>
     <Footer />
   </div>
