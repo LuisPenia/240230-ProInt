@@ -37,14 +37,3 @@
 .Detail-textContent a {
   color: white;
 }
-
-.Detail-calendarContent {
-  background-color: white;
-
-  width: 60vw;
-  height: 60vh; /* Altura del 80% del viewport */
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border: solid 1px white ;
-}
