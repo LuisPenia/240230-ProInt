@@ -10,10 +10,6 @@ function Calendario2({ onDateRangeChange, reservas }) {
     window.innerWidth <= 768 ? 1 : 2
   );
 
-  useEffect (() => {
-    console.log(reservas);
-  }, [reservas]); // comprobando existencia de dato
-
   const now = new Date();
   const offset = now.getTimezoneOffset() * 60000;
 
@@ -26,9 +22,18 @@ function Calendario2({ onDateRangeChange, reservas }) {
     key: "selection",
   });
 
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   const handleSelect = (ranges) => {
     setSelectionRange(ranges.selection);
-    onDateRangeChange(ranges.selection);
+    const start = formatDate(ranges.selection.startDate);
+    const end = formatDate(ranges.selection.endDate);
+    onDateRangeChange({ startDate: start, endDate: end });
   };
 
   useEffect(() => {
@@ -47,19 +52,18 @@ function Calendario2({ onDateRangeChange, reservas }) {
     };
   }, []);
 
- 
   const disabledDates = [];
 
   if (reservas) {
-    const arrayReservas = reservas.split("||"); // crear un array de tuplas de fecha
+    const arrayReservas = reservas.split("||");
 
     arrayReservas.forEach((reserva) => {
       const [start, end] = reserva.split(",").map(date => new Date(date.trim()));
       const currentDate = new Date(start);
 
       while (currentDate <= end) {
-        disabledDates.push(new Date(currentDate)); // Agregar una copia de la fecha actual al array
-        currentDate.setDate(currentDate.getDate() + 1); // Mover al siguiente día
+        disabledDates.push(new Date(currentDate));
+        currentDate.setDate(currentDate.getDate() + 1);
       }
     });
   }
@@ -82,3 +86,5 @@ function Calendario2({ onDateRangeChange, reservas }) {
 }
 
 export default Calendario2;
+
+

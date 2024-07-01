@@ -76,7 +76,7 @@ const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que 
       const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
       const handleDetailClick = (productId) => {
-        navigate(`/Detail2/${productId}`);
+        navigate(`/Detail/${productId}`);
     };
 
     return (

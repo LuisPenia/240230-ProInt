@@ -8,49 +8,47 @@ const Detail2 = ({ products }) => {
 
   const { productId } = useParams();
   const product = products.find((product) => product.id === parseInt(productId));
-
-
-  useEffect (() => {
-    //console.log(product.reservas);
-  }, [product]); // comprobando existencia de dato
-
-
-
-  // Manejar el estado del rango de fechas seleccionado
-  const [selectedDateRange, setSelectedDateRange] = useState(null);
   
-  // Estado para controlar la visibilidad del modal
+  const [selectedDateRange, setSelectedDateRange] = useState(null);  
   const [showModal, setShowModal] = useState(false);
-
   const { user } = useUser();
 
-  // Manejador de evento para el cambio en el rango de fechas seleccionado
   const handleDateRangeChange = (range) => {
-    setSelectedDateRange(range); // Actualiza el estado con el rango de fechas seleccionado
+    const { startDate, endDate } = range;
+    const reservaString = `${startDate},${endDate}`;
+    setSelectedDateRange(reservaString);
   };
-  
-  // Manejador de evento para el botón "Reservar"
+
   const handleReservaClick = () => {
     if (user) {
-      // Si el usuario está logueado, mostrar el modal
       setShowModal(true);
     } else {
-      // Si el usuario no está logueado, mostrar mensaje de advertencia
       alert('Para poder reservar un disfraz, Ud. debe **Iniciar Sesion**');
     }
+
+    const formDatab = new FormData();
+    formDatab.append('Id', product.id);
+    formDatab.append('Reserva', selectedDateRange); 
+
+    console.log(product.id);
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbyYCJ-mtFbqBjUPQqJD-g5YyCL9k3jwz5gG7z4DRbpS6gpgRCIwGPguz9CB1C5--jt9Pg/exec",
+      //"https://script.google.com/macros/s/AKfycbwJCA0KZPHtTZONu7MUonjv2csv-CaY_Dvm1CUqHDSJoWcNJh4ndn0mYPHm7RbczoYdtw/exec",
+      {
+        method: "POST",
+        body: formDatab
+      }
+    )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
   
-
-
-
-
-
-
-
-
-
-  
-
   return (
     <div className="Detail">
       <div className="Detail-imgContent">
@@ -72,14 +70,12 @@ const Detail2 = ({ products }) => {
         <button className="Reserva-button" onClick={handleReservaClick}>Reservar</button>
       </div>
 
-      {/* Modal para mostrar cuando el usuario está logueado y hay un rango de fechas seleccionado */}
       {showModal && selectedDateRange && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={() => setShowModal(false)}>&times;</span>
             <p>Rango de fechas seleccionado:</p>
-            <p>Inicio: {selectedDateRange.startDate.toDateString()}</p>
-            <p>Fin: {selectedDateRange.endDate.toDateString()}</p>
+            <p>{selectedDateRange}</p>
           </div>
         </div>
       )}
