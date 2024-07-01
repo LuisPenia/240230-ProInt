@@ -120,7 +120,7 @@ return (
       <Route path="/" element={<Home products={products} onAddProduct={handleAddProduct}/>} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/card/:id" element={<Detail products={products} />} />
-      <Route path="/card/:id" element={<Detail2 products={products} />} />
+      
       <Route
         path="/admin/AddProduct"
         element={<AddProduct products={products} setProducts={setProducts} onAddProduct={handleAddProduct} />}

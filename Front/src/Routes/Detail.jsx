@@ -1,45 +1,91 @@
-import React, { useEffect, useState } from 'react'; // Importa React y useEffect de la librería React
-import { useParams } from 'react-router-dom'; // Importa useParams de react-router-dom para obtener los parámetros de la URL
-import './Detail.css'; // Importa los estilos CSS personalizados para el componente Detail
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import './Detail.css';
 import { useUser } from '../UserContext';
+import Calendario2 from '../Components/Calendario/Calendario2';
 
-const Detail = ({ products }) => { // Define el componente Detail que recibe una prop llamada products
-  const { productId } = useParams(); // Extrae el productId de los parámetros de la URL usando useParams
-  const product = products.find((product) => product.id === parseInt(productId)); // Busca el producto en la lista de productos que tiene el id correspondiente
+const Detail2 = ({ products }) => {
 
-  if (!product) { // Si el producto no se encuentra, muestra un mensaje de error
-    return <div>Product not found</div>;
-  }
+  const { productId } = useParams();
+  const product = products.find((product) => product.id === parseInt(productId));
+
+
+  useEffect (() => {
+    //console.log(product.reservas);
+  }, [product]); // comprobando existencia de dato
+
+
+
+  // Manejar el estado del rango de fechas seleccionado
+  const [selectedDateRange, setSelectedDateRange] = useState(null);
+  
+  // Estado para controlar la visibilidad del modal
+  const [showModal, setShowModal] = useState(false);
 
   const { user } = useUser();
 
-  useEffect(() => {
-    if (user){
-      console.log('logeado');
+  // Manejador de evento para el cambio en el rango de fechas seleccionado
+  const handleDateRangeChange = (range) => {
+    setSelectedDateRange(range); // Actualiza el estado con el rango de fechas seleccionado
+  };
+  
+  // Manejador de evento para el botón "Reservar"
+  const handleReservaClick = () => {
+    if (user) {
+      // Si el usuario está logueado, mostrar el modal
+      setShowModal(true);
     } else {
-      console.log('noLogeado');
+      // Si el usuario no está logueado, mostrar mensaje de advertencia
+      alert('Para poder reservar un disfraz, Ud. debe **Iniciar Sesion**');
     }
+  };
+  
 
-    window.scrollTo(0, 0); // Desplaza la ventana a la parte superior al montar el componente
-  }, []); // El array vacío como dependencia asegura que esto ocurra solo una vez al montar el componente
+
+
+
+
+
+
+
+
+  
 
   return (
-    <div className="Detail"> {/* Contenedor principal del componente Detail */}
-      <div className="Detail-imgContent"> {/* Contenedor de la imagen del producto */}
-        <img src={product.imageUrl} alt={product.name} /> {/* Muestra la imagen del producto */}
+    <div className="Detail">
+      <div className="Detail-imgContent">
+        <img src={product?.imageUrl} alt={product?.name} />
       </div>
 
-      <div className="Detail-textContent"> {/* Contenedor del texto descriptivo del producto */}
-        <h2>{product.name}</h2> {/* Muestra el nombre del producto */}
-        <h2>Precio: {product.price}</h2> {/* Muestra el precio del producto */}
-        <a>...</a> {/* Enlace o espacio para información adicional */}
-        <p>{product.subCategory} para {product.mainCategory}</p> {/* Muestra la subcategoría y la categoría principal del producto */}
-        <p>Talla: {product.size}</p> {/* Muestra la talla del producto */}
-        <a>...</a> {/* Enlace o espacio para información adicional */}
-        <p>{product.largeDescription}</p> {/* Muestra una descripción larga del producto */}
+      <div className="Detail-textContent">
+        <h2>{product?.name}</h2>
+        <h1>$ {product?.price}</h1>
+        <a>...</a>
+        <p>{product?.subCategory} para {product?.mainCategory}</p>
+        <p>Talle: {product?.size}</p>
+        <a>...</a>
+        <p>{product?.largeDescription}</p>
       </div>
+
+      <div className="Detail-calendar">
+        <Calendario2 reservas={product.reservas} onDateRangeChange={handleDateRangeChange} />
+        <button className="Reserva-button" onClick={handleReservaClick}>Reservar</button>
+      </div>
+
+      {/* Modal para mostrar cuando el usuario está logueado y hay un rango de fechas seleccionado */}
+      {showModal && selectedDateRange && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={() => setShowModal(false)}>&times;</span>
+            <p>Rango de fechas seleccionado:</p>
+            <p>Inicio: {selectedDateRange.startDate.toDateString()}</p>
+            <p>Fin: {selectedDateRange.endDate.toDateString()}</p>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
 
-export default Detail;
+export default Detail2;
