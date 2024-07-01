@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './UserFilter2.css';
-import CardFilter from '../Components/Card/CardFilter'; // Importa el componente para mostrar los productos
+import CardFilter2 from '../Components/Card/CardFilter2'; // Importa el componente para mostrar los productos
+import { useNavigate } from 'react-router-dom';
 
 const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que recibe products como props (lista de todos los productos disponibles)
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 6; // Define el número de productos a mostrar por página.   
     const location = useLocation(); // Obtiene el objeto location actual de react-router-dom
+    const navigate = useNavigate();
     const { state } = location; // Extrae el estado pasado desde el Buscador (el payload)
     const [filteredProducts, setFilteredProducts] = useState(products); // para almacenar los productos filtrados y lo inicializa con todos los productos.
 
@@ -71,12 +73,16 @@ const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que 
       const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
       const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
+      const handleDetailClick = (productId) => {
+        navigate(`/Detail2/${productId}`);
+    };
+
     return (
         <div style={{ width: '100%' }}>
         <h1 className="user-filter-container">Resultados de la Búsqueda de Disfraces</h1>
         <div className="products-grid">
             {currentProducts.map(product => ( 
-                <CardFilter key={product.id} product={product} />
+                <CardFilter2 key={product.id} product={product} onDetailClick={() => handleDetailClick(product.id)} />
             ))}
         </div>
         <div className="pagination">

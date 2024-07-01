@@ -7,6 +7,7 @@ import Admin from './Routes/Admin'
 import AddProduct from './Routes/AddProduct'
 import { useEffect, useState } from 'react'
 import Detail from './Routes/Detail'
+import Detail2 from './Routes/Detail2'
 import Register from './Routes/Register'
 import AdminCaracteristicas from './Routes/AdminCaracteristicas'
 import Login from './Routes/Login'
@@ -119,6 +120,7 @@ return (
       <Route path="/" element={<Home products={products} onAddProduct={handleAddProduct}/>} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/card/:id" element={<Detail products={products} />} />
+      <Route path="/card/:id" element={<Detail2 products={products} />} />
       <Route
         path="/admin/AddProduct"
         element={<AddProduct products={products} setProducts={setProducts} onAddProduct={handleAddProduct} />}
@@ -132,6 +134,7 @@ return (
       <Route path="/userFilter2" element={<UserFilter2 products={products} />} />
       <Route path="/AdminPrivilegios" element={<AdminPrivilegios/>} />
       <Route path="/detail/:productId" element={<Detail products={products} />} />
+      <Route path="/detail2/:productId" element={<Detail2 products={products} />} />
       <Route path='/Perfil' element={<Perfil products={products} />} />
       <Route path="/buscador" element={<Buscador />} />
       </Routes>
