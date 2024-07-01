@@ -31,19 +31,28 @@ const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que 
 
                 filtered = filtered.filter(product => {
 
-                let productStartDate  = new Date("2000-01-01"); //Convierte la fecha inicial del producto a un objeto Date
-                let productEndDate    = new Date("2000-01-02"); 
+                let productStartDate  = new Date("2000-01-01"); //crea la variable fecha inicio de comparación
+                let productEndDate    = new Date("2000-01-02"); //crea la variable fecha termino de comparación
+
+                let reservas=[];            // array reservas vacio
+                let disponible = true;      // disponible por defecto
+                
                    
-                if (product.reservas != "") {
-                    productStartDate = new Date(product.reservas.substring(0, product.reservas.indexOf(","))); //Convierte la fecha inicial del producto a un objeto Date
-                    productEndDate   = new Date(product.reservas.substring(product.reservas.indexOf(",") + 1)); 
+                if (product.reservas != "") {   //Si existen reservas
+
+                    reservas=product.reservas.split("||");  // crear un array de tuplas de fecha
+                    
+                    for (let i = 0; i < reservas.length; i++) { // recorre las Tuplas
+                        productStartDate = new Date(reservas[i].substring(0, reservas[i].indexOf(","))); //Convierte la fecha inicial del producto a un objeto Date
+                        productEndDate   = new Date(reservas[i].substring(reservas[i].indexOf(",") + 1)); //Convierte la fecha termino del producto a un objeto Date
+                        disponible = disponible && (productEndDate < fechaInicial || productStartDate > fechaFinal); // comprueba disponibilidad para cada tupla
+                      }
+
                 }
 
-                // Verifica que el rango de fechas del producto no se superponga con el rango de fechas buscado
-                return (productEndDate < fechaInicial || productStartDate > fechaFinal);
+                return (disponible); // retorna disponible o no
                 
-                });
-               
+                }); 
             }
             
             setFilteredProducts(filtered); // Actualiza el estado con los productos filtrados
@@ -52,13 +61,6 @@ const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que 
             setFilteredProducts(products); // Si no hay estado, muestra todos los productos
         }
     }, [state, products]);
-
-    
-
- //reservas[reversedIndex].substring(0, reservas[reversedIndex].indexOf(","))
- //reservas[reversedIndex].substring(reservas[reversedIndex].indexOf(",") + 1)
-
-    //useEffect(()=>{console.log(product.reservas);},[product])
 
 
     const handlePrevPage = () => {
@@ -94,3 +96,30 @@ const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que 
 };
 
 export default UserFilter2;
+
+
+/*
+            // Filtra los productos según las fechas
+            if (state.fechaInicial && state.fechaFinal) { //si existen, proceder.
+                const fechaInicial = new Date(state.fechaInicial); // Convierte la fecha inicial a un objeto Date
+                const fechaFinal = new Date(state.fechaFinal); // Convierte la fecha final a un objeto Date
+
+
+                filtered = filtered.filter(product => {
+
+                let productStartDate  = new Date("2000-01-01"); //Convierte la fecha inicial del producto a un objeto Date
+                let productEndDate    = new Date("2000-01-02");
+                
+                   
+                if (product.reservas != "") {
+  
+                    productStartDate = new Date(product.reservas.substring(0, product.reservas.indexOf(","))); //Convierte la fecha inicial del producto a un objeto Date
+                    productEndDate   = new Date(product.reservas.substring(product.reservas.indexOf(",") + 1)); 
+                }
+
+                // Verifica que el rango de fechas del producto no se superponga con el rango de fechas buscado
+                return (productEndDate < fechaInicial || productStartDate > fechaFinal)
+            
+                }); 
+            }
+*/

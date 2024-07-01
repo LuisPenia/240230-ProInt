@@ -36,7 +36,7 @@ const Header = () => {
             framesFolder="LogoMov"
             framePrefix="LogoMov"
             frameQuantity={30}
-            frameForSecond={30}
+            frameForSecond={40}
           />
         </Link>
       </div>
