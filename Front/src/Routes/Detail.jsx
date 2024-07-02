@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './Detail.css';
+import './Detail2.css';
 import { useUser } from '../UserContext';
 import Calendario2 from '../Components/Calendario/Calendario2';
 
@@ -33,7 +33,8 @@ const Detail2 = ({ products }) => {
     console.log(product.id);
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbyYCJ-mtFbqBjUPQqJD-g5YyCL9k3jwz5gG7z4DRbpS6gpgRCIwGPguz9CB1C5--jt9Pg/exec",
+      
+      "https://script.google.com/macros/s/AKfycbzGKYic_d1YSwhQK8BXbw9cxiSpTvsvnHkLkjEywR96Lb3oUWMyTM4w0pu6v4RIeQMItA/exec",
       //"https://script.google.com/macros/s/AKfycbwJCA0KZPHtTZONu7MUonjv2csv-CaY_Dvm1CUqHDSJoWcNJh4ndn0mYPHm7RbczoYdtw/exec",
       {
         method: "POST",

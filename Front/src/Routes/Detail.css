@@ -59,3 +59,19 @@
 .Reserva-button:hover {
   background-color: yellowgreen;
 }
+
+.modal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:  yellow;
+  height: 27vh;
+  width: 27vw;
+}
+
+.close{
+  background-color: aqua;
+  height: 12vh;
+  width: 21vw;
+
+}
