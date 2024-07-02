@@ -39,11 +39,11 @@ const Login = () => {
       
       <div className='loginAnimation'>
         <AnimationComponent
-          effect="cicloInfinito"
+           effect="repetirUna"
           framesFolder="Thor"
           framePrefix="Thor"
           frameQuantity={50}
-          frameForSecond={63}
+          frameForSecond={80}
         />
       </div>
       
