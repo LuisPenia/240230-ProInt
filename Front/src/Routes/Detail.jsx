@@ -19,6 +19,7 @@ const Detail2 = ({ products }) => {
     setSelectedDateRange(reservaString);
   };
 
+
   const handleReservaClick = () => {
     if (user) {
       setShowModal(true);
@@ -28,14 +29,33 @@ const Detail2 = ({ products }) => {
 
     const formDatab = new FormData();
     formDatab.append('Id', product.id);
-    formDatab.append('Reserva', selectedDateRange); 
+    formDatab.append('Reserva', selectedDateRange);
+    formDatab.append('Price',product.price);
+    formDatab.append('User',user.email);
 
     console.log(product.id);
 
+
+    
+
     fetch(
-      
+      "https://script.google.com/macros/s/AKfycbzg3at9n3xuDalcRtvDJPSSSu8Gh0LhjiZ6a_GdVPaiGWuZwtOl4f6HjaMrMpb1Xq4YOA/exec",
+      //"https://script.google.com/macros/s/AKfycbwcA7UM-dWoRgIv4GEHy7zrcSsYFxQBv7jbi4L-3shez9RSWV4XmSlrHz0btrN61TcB/exec",
+      {
+        method: "POST",
+        body: formDatab
+      }
+    )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+    fetch(
       "https://script.google.com/macros/s/AKfycbzGKYic_d1YSwhQK8BXbw9cxiSpTvsvnHkLkjEywR96Lb3oUWMyTM4w0pu6v4RIeQMItA/exec",
-      //"https://script.google.com/macros/s/AKfycbwJCA0KZPHtTZONu7MUonjv2csv-CaY_Dvm1CUqHDSJoWcNJh4ndn0mYPHm7RbczoYdtw/exec",
       {
         method: "POST",
         body: formDatab
