@@ -84,6 +84,6 @@
 
 .rdrMonthAndYearPickers select:hover,
 .rdrMonthAndYearPickers select:focus {
-    background-color: #FFD700; /* Fondo amarillo al pasar el ratón o al enfocar */
+    
     color: #000; /* Texto en negro */
 }
