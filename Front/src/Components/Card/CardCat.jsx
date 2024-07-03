@@ -1,4 +1,4 @@
-import "./Card.css";
+import "./CardCat.css";
 
 const CardCat = ({ product }) => {
 
@@ -9,10 +9,10 @@ const CardCat = ({ product }) => {
       const { id, name, mainCategory, description, price, imageUrl } = product;
     
       return (
-        <div className="card">
-          <div className="imageContent">
+        <div className="CATcard">
           <h3>{mainCategory}</h3>
-          <img src={imageUrl} alt={name} />
+          <div className="CATimageContent">
+            <img src={imageUrl} alt={name} />
           </div>
         </div>
       );

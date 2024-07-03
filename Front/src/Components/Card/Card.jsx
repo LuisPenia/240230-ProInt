@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./Card.css";
 
+
 // eslint-disable-next-line react/prop-types
 const Card = ({ product }) => {
   if (!product || !product.id || !product.name || !product.description || !product.imageUrl
@@ -13,7 +14,7 @@ const Card = ({ product }) => {
   // eslint-disable-next-line react/prop-types
 
   return (
-    <Link to={`/detail/${product.id}`} className="product-card">
+    <Link to={`/detail/${product.id}`}>
       <div className="card">
       
         <div className="imageContent">

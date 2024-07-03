@@ -23,12 +23,12 @@
 }
 
 /* Estilos para el contenido de la imagen */
-.imageContent {
+.filter2-imageContent {
     text-align: center;
     margin-bottom: 10px;
 }
 
-.imageContent img {
+.filter2-imageContent img {
     max-width: 100%;
     border-radius: 8px;
 }

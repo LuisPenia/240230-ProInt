@@ -9,7 +9,7 @@ const CardFilter2 = ({ product, onDetailClick }) => {
 
     return (
         <div className="card card-filter">
-            <div className="imageContent">
+            <div className="filter2-imageContent">
                 <h3>{name}</h3>
                 <img src={imageUrl} alt={name} />
                 <button className="detail-button" onClick={onDetailClick}>Detalle</button>
