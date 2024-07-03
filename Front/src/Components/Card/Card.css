@@ -22,14 +22,14 @@
 .imageContent{
   margin:5px;
   align-items: center;
-  width: 200px;
+  width: 250px;
   height: 25vh;
   background-color: white;
   overflow: hidden; /* Esto asegura que si la imagen es más grande, no desborde el contenedor */
 }
 
 .imageContent img{
-  height: 100%; /* Ajusta la altura de la imagen al 100% de la altura del contenedor */
+  height: 90%; /* Ajusta la altura de la imagen al 100% de la altura del contenedor */
   width: auto; /* Mantén la proporción de la imagen */
 }
 
@@ -40,14 +40,16 @@
   padding: 16px;
 }
 
-.card-content h3 {
+.card-content h2 {
   text-align: center;
   margin-top: 0;
+  height: 30%;
 }
 
 .card-content p {
   margin-bottom: 8px;
-  width: 160px;
+  width: auto;
+  height: 30%;
 
 }
 
