@@ -43,7 +43,7 @@ const Login = () => {
           framesFolder="Thor"
           framePrefix="Thor"
           frameQuantity={50}
-          frameForSecond={80}
+          frameForSecond={81}
         />
       </div>
       
