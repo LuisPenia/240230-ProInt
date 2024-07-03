@@ -69,8 +69,8 @@ const Perfil = ({ products }) => {
                     <img src={product.imageUrl} alt={product.name} />
                     <p>{product.name}</p>
                   </td>
-                  <td>{ventas[reversedIndex]}</td>
-                  <td>
+                  <td className='entregaDevolucioncelda'>{ventas[reversedIndex]}</td>
+                  <td className='entregaDevolucion'>
                     <div><p>{entrega + fechas[reversedIndex].substring(0, fechas[reversedIndex].indexOf(","))}</p></div>
                     <div><p>{devolucion + fechas[reversedIndex].substring(fechas[reversedIndex].indexOf(",") + 1)}</p></div>
                   </td>

@@ -97,14 +97,6 @@ const Detail2 = ({ products }) => {
         <div className='detailCalendarDiv' >
           <button className="Reserva-button"  onClick={handleReservaClick}>Reservar</button>
         </div>
-
-        <pre>
-            Este es un ejemplo de texto largo
-            con varias líneas y 
-              indentación que se respetará
-            en el aplicativo web.
-        </pre>
-
       </div>
 
       <Modal 
