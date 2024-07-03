@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './Detail2.css';
+import './Detail.css';
 import { useUser } from '../UserContext';
 import Calendario2 from '../Components/Calendario/Calendario2';
 import Modal from '../Components/Modal/Modal';
@@ -94,7 +94,17 @@ const Detail2 = ({ products }) => {
 
       <div className="Detail-calendar">
         <Calendario2 reservas={product.reservas} onDateRangeChange={handleDateRangeChange} />
-        <button className="Reserva-button" onClick={handleReservaClick}>Reservar</button>
+        <div className='detailCalendarDiv' >
+          <button className="Reserva-button"  onClick={handleReservaClick}>Reservar</button>
+        </div>
+
+        <pre>
+            Este es un ejemplo de texto largo
+            con varias líneas y 
+              indentación que se respetará
+            en el aplicativo web.
+        </pre>
+
       </div>
 
       <Modal 

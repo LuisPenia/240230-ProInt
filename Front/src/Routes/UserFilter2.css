@@ -108,3 +108,21 @@ body {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+.products-grid{
+    padding: 1vw;
+    background-color: #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-filter-container{
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: #f6e8ed;
+    margin: 5px;
+}

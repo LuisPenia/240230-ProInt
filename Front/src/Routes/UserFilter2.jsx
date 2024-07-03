@@ -81,7 +81,7 @@ const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que 
 
     return (
         <div style={{ width: '100%' }}>
-        <h1 className="user-filter-container">Resultados de la Búsqueda de Disfraces</h1>
+        <h2 className="user-filter-container">Resultados de la Búsqueda de Disfraces</h2>
         <div className="products-grid">
             {currentProducts.map(product => ( 
                 <CardFilter2 key={product.id} product={product} onDetailClick={() => handleDetailClick(product.id)} />
@@ -95,31 +95,4 @@ const UserFilter2 = ({ products }) => { // Define el componente UserFilter2 que 
     );
 };
 
-export default UserFilter2;
-
-
-/*
-            // Filtra los productos según las fechas
-            if (state.fechaInicial && state.fechaFinal) { //si existen, proceder.
-                const fechaInicial = new Date(state.fechaInicial); // Convierte la fecha inicial a un objeto Date
-                const fechaFinal = new Date(state.fechaFinal); // Convierte la fecha final a un objeto Date
-
-
-                filtered = filtered.filter(product => {
-
-                let productStartDate  = new Date("2000-01-01"); //Convierte la fecha inicial del producto a un objeto Date
-                let productEndDate    = new Date("2000-01-02");
-                
-                   
-                if (product.reservas != "") {
-  
-                    productStartDate = new Date(product.reservas.substring(0, product.reservas.indexOf(","))); //Convierte la fecha inicial del producto a un objeto Date
-                    productEndDate   = new Date(product.reservas.substring(product.reservas.indexOf(",") + 1)); 
-                }
-
-                // Verifica que el rango de fechas del producto no se superponga con el rango de fechas buscado
-                return (productEndDate < fechaInicial || productStartDate > fechaFinal)
-            
-                }); 
-            }
-*/
+export default UserFilter2
