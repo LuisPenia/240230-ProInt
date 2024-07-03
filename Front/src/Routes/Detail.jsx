@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './Detail2.css';
 import { useUser } from '../UserContext';
 import Calendario2 from '../Components/Calendario/Calendario2';
+import Modal from '../Components/Modal/Modal';
 
 const Detail2 = ({ products }) => {
 
@@ -70,6 +71,11 @@ const Detail2 = ({ products }) => {
     });
   };
   
+  if (!product) {
+    return <div>Producto no encontrado</div>;
+  }
+
+
   return (
     <div className="Detail">
       <div className="Detail-imgContent">
@@ -91,15 +97,13 @@ const Detail2 = ({ products }) => {
         <button className="Reserva-button" onClick={handleReservaClick}>Reservar</button>
       </div>
 
-      {showModal && selectedDateRange && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={() => setShowModal(false)}>&times;</span>
-            <p>Rango de fechas seleccionado:</p>
-            <p>{selectedDateRange}</p>
-          </div>
-        </div>
-      )}
+      <Modal 
+        showModal={showModal} 
+        setShowModal={setShowModal} 
+        selectedDateRange={selectedDateRange} 
+        user={user} 
+        product={product} 
+      />
 
     </div>
   );
